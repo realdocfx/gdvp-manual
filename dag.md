@@ -38,7 +38,7 @@ env2(0) ──1──▶ vca(0)            ; envelope shapes amplitude (the "gat
 vca(0) ──0──▶ panner(0)          ; amp into stereo placement
 ```
 
-That is exactly the `acid_squelch` example patch ([see the example library](patches.md#library)).
+That is essentially the `acid_squelch` example patch ([see the example library](patches.md#library)).
 The node *number* (`id`) is arbitrary and need not be ordered; the **edges** define the
 topology, and the compiler sorts execution order for you.
 
@@ -118,4 +118,4 @@ re-patching doesn't click or crash. Source: `gdvp_voice_manager.c`
 
 ---
 
-[← Global Concepts](concepts.md) · [Manual index](README.md) · Next: [Performance & Expression →](performance.md)
+[← The Node Graph](dag.md) · [Manual index](README.md) · Next: [Performance & Expression →](performance.md)

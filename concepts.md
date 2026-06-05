@@ -89,7 +89,7 @@ The conversion is fixed and worth memorising:
 > **1 semitone = 128 CV units.** One octave = 1536 CV units.
 
 So a 14-bit pitch CV spans 16384 / 128 = **128 semitones** of range, and `8192` sits at the
-centre. This is the same unit the [chord presets](performance.md#chord) use to express
+centre. This is the same unit the [chord presets](performance.md#chords) use to express
 intervals (a major third is `512` = 4 × 128) and the same unit oscillator **detune** trims in
 (`±128` CV steps = ±1 semitone, ~1 cent per step). See [Oscillator](nodes/oscillator.md#detune).
 
