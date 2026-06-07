@@ -8,10 +8,6 @@ decorrelation across a chord), and a *shaping mode*, then forwards that palette.
 everything from colored audio noise to Geiger-counter dust to Buchla-style stepped voltages.
 Source: `gdvp_dsp_exciter.c`, payload `gdvp_node_exciter_t` in `gdvp_nodes.h`.
 
-> **Note on status.** `gdvp_nodes.h` prose lists EXCITER as "PENDING", but it is **wired and
-> active** in the live dispatch table (`gdvp_dsp_dispatch.c`) — both its processor and updater are
-> registered. It produces sound on the current build.
-
 ## Signal & ports
 
 - **Output (port 0):** the generated/shaped entropy signal — route it as an audio source (noise

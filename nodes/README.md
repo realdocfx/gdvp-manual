@@ -26,12 +26,12 @@ in `gdvp_nodes.h`.
 | Exciter (entropy tap) | `GDVP_NODE_EXCITER` | ✅ Active | [exciter.md](exciter.md) |
 | Upsampler | `GDVP_NODE_UPSAMPLER` | ✅ Active (auto-injected) | [oversampling.md](oversampling.md) |
 | Downsampler | `GDVP_NODE_DOWNSAMPLER` | ✅ Active (auto-injected) | [oversampling.md](oversampling.md) |
-| GFX Delay | `GDVP_NODE_GFX_DELAY` | ⛔ Inactive (NULL) | [gfx.md#delay](gfx.md#delay) |
-| GFX Gain | `GDVP_NODE_GFX_GAIN` | ⛔ Inactive (NULL) | [gfx.md#gain](gfx.md#gain) |
-| GFX Env detector | `GDVP_NODE_GFX_ENV` | ⛔ Inactive (NULL) | [gfx.md#env](gfx.md#env) |
-| GFX All-pass | `GDVP_NODE_GFX_APF` | ⛔ Inactive (NULL) | [gfx.md#apf](gfx.md#apf) |
-| GFX FDN reverb | `GDVP_NODE_GFX_FDN` | ⛔ Inactive (NULL) | [gfx.md#fdn](gfx.md#fdn) |
-| GFX Modulator | `GDVP_NODE_GFX_MOD` | ⛔ Inactive (NULL) | [gfx.md#mod](gfx.md#mod) |
+| GFX Delay | `GDVP_NODE_GFX_DELAY` | ✅ Active (master-domain) | [gfx.md#delay](gfx.md#delay) |
+| GFX Gain | `GDVP_NODE_GFX_GAIN` | ✅ Active (master-domain) | [gfx.md#gain](gfx.md#gain) |
+| GFX Env detector | `GDVP_NODE_GFX_ENV` | ✅ Active (master-domain) | [gfx.md#env](gfx.md#env) |
+| GFX All-pass | `GDVP_NODE_GFX_APF` | ✅ Active (master-domain) | [gfx.md#apf](gfx.md#apf) |
+| GFX FDN reverb | `GDVP_NODE_GFX_FDN` | ✅ Active (master-domain) | [gfx.md#fdn](gfx.md#fdn) |
+| GFX Modulator | `GDVP_NODE_GFX_MOD` | ✅ Active (master-domain) | [gfx.md#mod](gfx.md#mod) |
 | Master Bus | `GDVP_NODE_MASTER_BUS` | ⛔ Inactive (NULL) | — |
 | ROM Reader | `GDVP_NODE_ROM_READER` | ⛔ Inactive (NULL) | — |
 | Feedback | `GDVP_NODE_FEEDBACK` | ⛔ Inactive (NULL) | — |
@@ -39,10 +39,9 @@ in `gdvp_nodes.h`.
 | FDN (legacy slot) | `GDVP_NODE_FDN` | ⛔ Inactive (NULL) | — |
 
 > **Reading the GFX rows.** The GFX-family DSP source files exist (`gdvp_dsp_gfx_*.c`) and
-> several example patches reference these nodes (e.g. `*_reverb.gvp`, `*_phaser.gvp`,
-> `*_chorus.gvp`), but every GFX slot is `NULL` in the live processor table. Those patches load
-> and play their *synthesis* graph; the GFX node in them is skipped and contributes no sound on
-> the current build. See [Effects](../effects.md) and [Appendix A](../appendix-status.md).
+> all GFX nodes are now fully implemented with registered processors and updaters in the
+> dispatch tables. They run on the Global EFX bus (master-domain, post-mix, monophonic) for
+> spatial acoustics and global modulation. See [Effects](../effects.md) for details.
 
 ## How to read a node page
 
@@ -70,6 +69,7 @@ These are the nodes you actually build voices from today:
 - **[Panner](panner.md)** — constant-power stereo placement.
 - **[Exciter](exciter.md)** — entropy tap: colored noise / particle dust / sample-and-hold sources.
 - **[Oversamplers](oversampling.md)** — band-limited 2× up/down conversion at oversampled-node boundaries.
+- **[GFX Effects](gfx.md)** — master-domain effects: delay, gain, envelope detector, all-pass, FDN reverb, modulator.
 
 ---
 
