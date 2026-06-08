@@ -6,8 +6,8 @@ Engine v4.3.0 · Canonical MIDI Schema (MIS) v0.9.1 · Manual revision 1
 ---
 
 This manual describes how to *operate* GDVP: how to play it, program patches, route
-modulation, manage parts, and drive it over MIDI. It is generated from elevated static
-analysis of the source tree and documents **as-built behaviour** — what the compiled
+modulation, manage parts, and drive it over MIDI. It is produced from Codebase Dcumentation via Doxygen
+ **as-built behaviour** — what the compiled
 engine actually does, including the places where the running code diverges from its own
 header comments. Where that divergence matters to you as an operator, it is flagged
 explicitly (see [Engine Status & Known Divergences](appendix-status.md)).
