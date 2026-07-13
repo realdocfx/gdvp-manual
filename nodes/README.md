@@ -1,5 +1,13 @@
 # 4 · Node Reference
 
+**Author:** François-Xavier Briollais  
+**Copyright:** All rights reserved.
+
+[![Version](https://img.shields.io/badge/version-1.4.0-blue)](#)
+[![License](https://img.shields.io/badge/license-All%20rights%20reserved-black)](../../../LICENSE.md)
+
+**Status:** Version 1.4.0 · Active
+
 [← Performance & Expression](../performance.md) · [Manual index](../README.md) · Next: [Effects →](../effects.md)
 
 Every sound in GDVP is built from **nodes** wired into a [graph](../dag.md). This section
@@ -74,3 +82,11 @@ These are the nodes you actually build voices from today:
 ---
 
 [← Performance & Expression](../performance.md) · [Manual index](../README.md) · Next: [Effects →](../effects.md)
+
+---
+
+## License
+
+Copyright François-Xavier Briollais. All rights reserved.
+
+See [`../README.md`](../README.md) for the parent `manual` overview.

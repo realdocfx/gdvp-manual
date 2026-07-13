@@ -1,7 +1,13 @@
-# GDVP Operator's Manual
+# manual — GDVP Operator's Manual
+
+**Author:** François-Xavier Briollais  
+**Copyright:** All rights reserved.
+
+[![Version](https://img.shields.io/badge/version-1.4.0-blue)](#)
+[![License](https://img.shields.io/badge/license-All%20rights%20reserved-black)](../LICENSE.md)
 
 **General Digital Voicing Program — Producer Engine**
-Engine v4.3.0 · Canonical MIDI Schema (MIS) v0.9.1 · Manual revision 1
+Engine v1.4.0 · Canonical MIDI Schema (MIS) v0.9.1 · Manual revision 1
 
 ---
 
@@ -61,3 +67,9 @@ GDVP ships in three operator-facing forms, all driving the same deterministic co
 ---
 
 *GDVP and the Producer Engine are the work of François-Xavier Briollais. This manual documents the engine as it stands in the source tree; it is a reference, not a warranty of behaviour.*
+
+## License
+
+Copyright François-Xavier Briollais. All rights reserved.
+
+See [`../README.md`](../README.md) for the parent `gdvp-server-web` overview.
