@@ -1,0 +1,17 @@
+# --- Obsidian vault (the partner authors the manual here) ---
+# Shared vault config (.obsidian/app.json, hotkeys, community plugins) MAY be
+# committed so every editor gets the same setup. Per-user, machine-local state
+# must NOT be — it churns constantly and causes needless sync conflicts.
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/workspace*.json
+.obsidian/cache
+.obsidian/.trash/
+.trash/
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
