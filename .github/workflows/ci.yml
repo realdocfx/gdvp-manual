@@ -1,0 +1,48 @@
+# GDVP Manual CI — informational quality signal for the SSOT.
+#
+# This repo is edited concurrently from the IDE, Obsidian, the server CMS, and
+# the wiki. To honour "edit anywhere, always syncs", CI must NEVER block a push
+# or merge — every job is continue-on-error, a ratchet you can tighten later
+# (mirrors the engine's ASan/TSan informational ratchets). It reports markdown
+# hygiene and broken links; it does not gate the SSOT.
+name: Manual CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  markdownlint:
+    name: Markdown lint (informational)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DavidAnson/markdownlint-cli2-action@v16
+        with:
+          globs: '**/*.md'
+
+  links:
+    name: Link check (informational)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check relative + external links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --exclude-mail
+            --exclude-path CONTRIBUTING.md
+            './**/*.md'
+          fail: false

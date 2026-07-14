@@ -1,0 +1,12 @@
+{
+  // Permissive lint for a multi-writer, Obsidian-authored SSOT. Edits must flow
+  // freely from every surface, so CI is a quality SIGNAL, not a gate — these
+  // disables keep prose/Obsidian authoring from tripping style rules.
+  "default": true,
+  "MD013": false,                      // line length — prose wraps freely
+  "MD033": false,                      // inline HTML — callouts / embeds
+  "MD041": false,                      // first-line-heading — titles/frontmatter vary
+  "MD024": { "siblings_only": true },  // repeated headings ok across sections
+  "MD026": false,                      // trailing punctuation in headings
+  "MD004": { "style": "dash" }         // consistent unordered-list bullets
+}
