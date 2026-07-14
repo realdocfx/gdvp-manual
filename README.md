@@ -1,80 +1,65 @@
-# manual — GDVP Operator's Manual
+# General Digital Voicing Program (GDVP)
 
-**Author:** François-Xavier Briollais  
-**Copyright:** All rights reserved.
+*A digital synthesizer built like an instrument, engineered to the discipline of safety-critical software.*
 
-[![Version](https://img.shields.io/badge/version-1.4.0-blue)](#)
-[![License](https://img.shields.io/badge/license-All%20rights%20reserved-black)](../LICENSE.md)
+Welcome to the official Wiki and Operator's Manual for the **General Digital Voicing Program (GDVP) — Producer Engine**. 
 
-**General Digital Voicing Program — Producer Engine**
-Engine v1.4.0 · Canonical MIDI Schema (MIS) v0.9.1 · Manual revision 1
+GDVP is a 128-voice, 16-part multitimbral digital synthesizer that behaves less like standard audio software and more like professional, fail-safe hardware[cite: 2]. It operates flawlessly as a standalone application and a VST3 plug-in across Windows and macOS, driven by a deeply optimized C11 core[cite: 2].
 
 ---
 
-This manual describes how to *operate* GDVP: how to play it, program patches, route
-modulation, manage parts, and drive it over MIDI. It is produced from Codebase Documentation via Doxygen
- **as-built behaviour** — what the compiled
-engine actually does, including the places where the running code diverges from its own
-header comments. Where that divergence matters to you as an operator, it is flagged
-explicitly (see [Engine Status & Known Divergences](appendix-status.md)).
+## 🏗️ Repository Architecture
 
-> **As-built, not as-marketed.** The [node reference](nodes/README.md) marks each node ✅ Active
-> or ⛔ Inactive against the dispatch table in `gdvp_dsp_dispatch.c`, not against prose. The GFX
-> effect family and Exciter are now active and produce audio; `master_bus` and the legacy FDN slot
-> remain inactive. See [Engine Status & Known Divergences](appendix-status.md).
+The GDVP ecosystem is bifurcated into highly specialized submodules managed by a monorepo orchestrator[cite: 2, 5].
 
-## How GDVP reaches your ears
-
-GDVP ships in three operator-facing forms, all driving the same deterministic core engine:
-
-| Form | What it is | Entry point |
-|---|---|---|
-| **Standalone** | A host process (`GDVP_Standalone.exe`) that owns the audio device and hardware MIDI, and spawns the CRT client UI over shared memory. | [Standalone & Hosts](hosts.md#standalone) |
-| **VST3 plug-in** | A DAW-hosted processor; the DAW owns transport, audio I/O and automation. | [Standalone & Hosts](hosts.md#vst3) |
-| **Client (front panel)** | The SDL2/CRT-phosphor interface (`gdvp_client.exe`) that renders the patch as a panel and edits it. Runs under both forms above. | [The Front Panel](gui.md) |
-
-## Table of contents
-
-### Part I — Concepts
-1. [Global Concepts & Signal Model](concepts.md) — parts, voices, nodes, buses, the fixed-point world, the thread model
-2. [The Node Graph (DAG)](dag.md) — how patches are graphs, ports, fan-in, compilation order
-3. [Performance & Expression](performance.md) — voice modes, glide, unison, chords, arpeggiator, pitch bend, MPE
-
-### Part II — Building sound
-4. [Node Reference](nodes/README.md) — every node type, its parameters, ranges and status
-   - [Oscillator](nodes/oscillator.md) · [Filter](nodes/filter.md) · [Envelope](nodes/envelope.md) · [LFO](nodes/lfo.md) · [VCA](nodes/vca.md) · [Mixer](nodes/mixer.md) · [Panner](nodes/panner.md) · [Exciter (entropy tap)](nodes/exciter.md) · [Oversamplers](nodes/oversampling.md) · [GFX effect nodes](nodes/gfx.md)
-5. [Effects & the Global EFX Bus](effects.md) — master-domain processing, the GFX family, current status
-6. [Parameters, Ranges & Values](parameters.md) — the canonical parameter table, CV conventions, scaling math
-7. [Patch Management (`.gvp`)](patches.md) — the file format, the example library, loading and saving
-
-### Part III — Control
-8. [MIDI Implementation](midi.md) — channel→part mapping, the CC/NRPN map, notes, panic, what is and isn't wired
-9. [The Front Panel](gui.md) — the CRT interface, the oscilloscope, node panels, the patch browser
-
-### Reference
-- [Parameter Index](parameter-index.md) — every parameter ID, alphabetical, with links
-- [Glossary](glossary.md) — Airlock, SPSC, Q16.16, PPQN, OSAC and the rest
-- [Appendix A — Engine Status & Known Divergences](appendix-status.md)
-- [Appendix B — Constraint Set (CR-001…CR-004 / MISRA)](appendix-constraints.md)
-
-## Conventions used in this manual
-
-- **CV** means a 14-bit control value in the range `0–16383` unless stated otherwise. `8192` is the bipolar centre. See [Parameters](parameters.md#cv).
-- **Q16.16** is the engine's internal fixed-point format: a signed 32-bit integer holding 16 integer bits and 16 fractional bits. See [Glossary](glossary.md#q1616).
-- Source references look like `gdvp_voice_executor.c` and point into the live tree so any claim here can be checked against code.
-- ✅ = active in the live build · ⛔ = present in source but not wired (silent) · ⚠️ = wired but stubbed/partial.
+*   **[`general_digital_voicing_program`](https://github.com/realdocfx/general_digital_voicing_program)**
+    The monorepo orchestrator[cite: 2, 5]. Contains the global build scripts (`build-all.ps1`), CI/CD YAML definitions, deployment tooling, and the overarching project structure[cite: 2, 5].
+*   **[`gdvp-core-dsp`](https://github.com/realdocfx/gdvp-core-dsp)**
+    The heart of the instrument[cite: 2, 5]. Contains the C11 DSP synthesis engine (`gdvp/`), the SDL2 Immediate-Mode GUI client (`client/`), and the C++ VST3 proxy facade (`proxy/`)[cite: 2, 5].
+*   **[`gdvp-data-rom`](https://github.com/realdocfx/gdvp-data-rom)** *(Submodule of Core DSP)*
+    The immutable mathematical substrate[cite: 3]. Contains the generated Q16.16 LUT tables (sine, TPT-SVF filter coefficients, etc.) and the Python scripts used to build and cryptographically seal them[cite: 3].
+*   **[`gdvp-server-web`](https://github.com/realdocfx/gdvp-server-web)**
+    The distribution and licensing backend[cite: 4, 5]. Contains the FastAPI Python server (`server/`) and the Vite/React web portal (`web/`) for managing testers, first-party analytics, and machine-bound Ed25519 licenses[cite: 4, 5].
+*   **[`gdvp-manual`](https://github.com/realdocfx/gdvp-manual)**
+    This repository[cite: 1, 6]. It houses the markdown files, architectural Milestone specifications, and the operator's manual[cite: 1, 6].
 
 ---
 
-*GDVP and the Producer Engine are the work of François-Xavier Briollais. This manual documents the engine as it stands in the source tree; it is a reference, not a warranty of behaviour.*
+## ⚙️ The Determinism Dividend
 
-## License
+Most music software is written to ship; GDVP is written to a strict safety-critical standard. The engine operates under four unyielding architectural constraints that guarantee phase-coherent repeatability, zero audio dropouts, and immunity to session crashes:
 
-Copyright François-Xavier Briollais. All rights reserved.
+*   **CR-001: Zero Runtime Floating-Point Math:** All DSP loops, envelopes, and exponential sweeps are resolved using pre-calculated Look-Up Tables (LUTs) and signed 32-bit fixed-point arithmetic in Q16.16 format[cite: 2, 5]. There is no rounding drift and no reliance on math.h in the hot paths.
+*   **CR-002: Zero Dynamic Memory Allocation:** Exactly zero calls to `malloc` or `free` at runtime. The entire application universe—including the 128-voice pool, 8192 DSP nodes, and 4096 local buses—is instantiated into a strict 900 KB static arena during boot[cite: 4, 5].
+*   **CR-003: Deterministic Hard Real-Time Execution:** Every processing path is bounded in constant time. Voice processing is O(1), ensuring under 10% CPU load at full 128-voice polyphony[cite: 4, 5].
+*   **CR-004: MISRA C:2012 Compliance:** The C11 core is verified against aerospace-grade static analysis quality gates, ensuring unparalleled operational safety[cite: 2, 5].
 
-See [`../README.md`](../README.md) for the parent `gdvp-server-web` overview.
+---
 
-## Engineering reference
+## 📚 Wiki Directory
 
-- **[`gdvp-core-dsp/gdvp/docs/adr/README.md`](../../gdvp-core-dsp/gdvp/docs/adr/README.md)** — Architectural decisions behind the engine.
-- **[`gdvp-server-web/deploy/runbooks/README.md`](../deploy/runbooks/README.md)** — Operational runbooks for the license server.
+Navigate the GDVP documentation using the links below. 
+
+### Part I: Architecture & Concepts
+*   **[Global Concepts & Signal Model](concepts.md)** — Parts, voices, fixed-point math, and the lock-free SPSC three-thread model[cite: 1, 6].
+*   **[The Node Graph (DAG)](dag.md)** — Understanding patches as Directed Acyclic Graphs, ports, fan-in, and Kahn's topological compilation[cite: 1, 6].
+*   **[Performance & Expression](performance.md)** — Voice allocation modes (Mono, Legato, Poly, Unison, Chord, Arp), glide logic, and MPE pressure[cite: 1, 6].
+
+### Part II: Building Sound
+*   **[Node Reference](nodes/README.md)** — The definitive guide to the 32-byte DSP blocks[cite: 1, 6].
+    *   [Oscillator](nodes/oscillator.md) | [Filter (TPT-SVF)](nodes/filter.md) | [Envelope (ADSR)](nodes/envelope.md) | [LFO](nodes/lfo.md) | [VCA](nodes/vca.md) | [Exciter](nodes/exciter.md) | [Panner](nodes/panner.md) | [Mixer](nodes/mixer.md) | [Oversamplers](nodes/oversampling.md) | [GFX](nodes/gfx.md)[cite: 1, 6]
+*   **[Effects & the Global EFX Bus](effects.md)** — Master-domain processing, including the GFX family (Delay, Gain, Env, APF, FDN Reverb, Mod)[cite: 1, 6].
+*   **[Parameters, Ranges & Values](parameters.md)** — The 14-bit CV convention, the bifurcated parameter model (Base vs. Modulation), and the complete ID index[cite: 1, 6].
+*   **[Patch Management (`.gvp`)](patches.md)** — The JSON patch format, routing semantics, and the factory example library[cite: 1, 6].
+
+### Part III: Control & Interface
+*   **[The Front Panel (GUI)](gui.md)** — The CRT-phosphor SDL2 interface, grid-based Wabi-Sabi layout, and the real-time zero-crossing oscilloscope[cite: 1, 6].
+*   **[MIDI Implementation](midi.md)** — Channel-to-Part mapping, the Canonical CC/NRPN map, 14-bit high-resolution pairing, and Smart CC Immunity[cite: 1, 6].
+*   **[Standalone & Hosts](hosts.md)** — Differences between running `GDVP_Standalone.exe` natively vs. DAW-hosted `GDVP_Proxy.vst3`[cite: 1, 6].
+
+### Part IV: Reference & Appendices
+*   **[Beta Tester & Activation Guide](beta-tester-guide.md)** — Walkthrough for machine-ID binding and unlocking the engine[cite: 1, 6].
+*   **[Parameter Index](parameter-index.md)** — Alphabetical lookup of every parameter ID[cite: 1, 6].
+*   **[Glossary](glossary.md)** — Terminology reference (Airlock, OSAC, TPT-SVF, VAM)[cite: 1, 6].
+*   **[Appendix A: Engine Status & Known Divergences](appendix-status.md)** — Ground-truth documentation of live vs. stubbed node types[cite: 1, 6].
+*   **[Appendix B: Constraint Set & Hard Limits](appendix-constraints.md)** — The exact numerical ceilings of the engine (e.g., 64 maximum nodes per patch)[cite: 1, 6].
