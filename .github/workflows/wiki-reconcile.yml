@@ -1,0 +1,58 @@
+# Wiki reconcile leg: GitHub Wiki -> SSOT (main).
+#
+# Fires on `gollum` (a human editing a wiki page) and folds the change back into
+# the SSOT. Skips its own publish-bot commits so the loop cannot cycle, and
+# pushes to main with GITHUB_TOKEN (which does not re-trigger the publish leg).
+# Wiki edits are add/update only — they never delete SSOT files.
+name: Wiki reconcile (wiki to SSOT)
+
+on:
+  gollum
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wiki-sync        # serialize with the publish leg
+  cancel-in-progress: false
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout SSOT
+        uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+
+      - name: Clone wiki
+        env: { TOKEN: ${{ secrets.WIKI_SYNC_TOKEN || secrets.GITHUB_TOKEN }} }
+        run: git clone "https://x-access-token:${TOKEN}@github.com/${{ github.repository }}.wiki.git" wiki
+
+      - name: Skip if the latest wiki commit is our own publish
+        id: guard
+        run: |
+          msg=$(git -C wiki log -1 --pretty=%s)
+          who=$(git -C wiki log -1 --pretty=%an)
+          if printf '%s' "$msg" | grep -q '\[skip-reconcile\]' || [ "$who" = "gdvp-sync-bot" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Fold wiki -> SSOT
+        if: steps.guard.outputs.skip == 'false'
+        run: SSOT=. WIKI=wiki bash scripts/wiki_sync.sh reconcile
+
+      - name: Commit + push if changed
+        if: steps.guard.outputs.skip == 'false'
+        run: |
+          git config user.name  "gdvp-wiki-bot"
+          git config user.email "wiki-bot@users.noreply.github.com"
+          git add -A ':!wiki'
+          if git diff --cached --quiet; then
+            echo "SSOT already reflects the wiki."
+          else
+            git commit -m "Reconcile wiki edit into the manual [skip-publish]"
+            git push
+          fi
