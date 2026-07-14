@@ -1,0 +1,16 @@
+# Line-ending normalization for a multi-OS, multi-editor SSOT.
+# Markdown is stored as LF in the repo no matter which platform edited it, so
+# Obsidian (any OS), the Linux server/CMS, and the Windows IDE never produce
+# spurious CRLF/LF diffs that would surface as false sync conflicts.
+* text=auto eol=lf
+*.md text eol=lf
+
+# Binary assets (never touch EOLs / never diff as text).
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.svg text eol=lf
+*.woff2 binary
+*.pdf binary
