@@ -17,8 +17,8 @@ WIKI="${WIKI:-wiki}"
 # repo-management files that must never appear in the wiki
 excluded() {
   case "$1" in
-    README.md|CONTRIBUTING.md) return 0 ;;   # README maps to Home; CONTRIBUTING is repo-only
-    .github/*|scripts/*|.*|*/.*) return 0 ;; # workflows, scripts, dotfiles
+    README.md|CONTRIBUTING.md) return 0 ;;        # README maps to Home; CONTRIBUTING is repo-only
+    .github/*|scripts/*|docs/*|.*|*/.*) return 0 ;; # workflows, scripts, contributor docs, dotfiles
   esac
   return 1
 }
