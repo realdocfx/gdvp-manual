@@ -29,11 +29,14 @@ jobs:
     steps:
       - name: Checkout SSOT
         uses: actions/checkout@v4
-        with: { path: ssot, fetch-depth: 0 }
+        with:
+          path: ssot
+          fetch-depth: 0
 
       - name: Clone wiki (skip gracefully if not initialized)
         id: wiki
-        env: { TOKEN: ${{ secrets.WIKI_SYNC_TOKEN || secrets.GITHUB_TOKEN }} }
+        env:
+          TOKEN: ${{ secrets.WIKI_SYNC_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           if git clone "https://x-access-token:${TOKEN}@github.com/${{ github.repository }}.wiki.git" wiki 2>/dev/null; then
             echo "exists=true" >> "$GITHUB_OUTPUT"
