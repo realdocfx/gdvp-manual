@@ -16,28 +16,30 @@ claims are against the live dispatch tables and kernels, not prose.
 These node types exist in the enum (and most have payload structs and/or DSP source files) but are
 `NULL` in the processor table, so the voice executor skips them and they produce no sound:
 
-- All **GFX** effects: `GDVP_NODE_GFX_DELAY`, `_GFX_GAIN`, `_GFX_ENV`, `_GFX_APF`, `_GFX_FDN`,
-  `_GFX_MOD`. (DSP source files `gdvp_dsp_gfx_*.c` are present but unwired.)
 - `GDVP_NODE_MASTER_BUS` — the dedicated stereo master accumulator node.
 - `GDVP_NODE_ROM_READER`, `GDVP_NODE_FEEDBACK`, `GDVP_NODE_MACRO_DELAY`, `GDVP_NODE_FDN` (legacy
   reverb slot).
 
-**Impact on patches:** any `.gvp` that includes one of these (notably the effects-suffixed examples
-and `master_bus` in pad patches) **loads and plays its synthesis graph**, but the listed node is
-dropped. Expect no reverb/delay/phaser tail from those patches on this build. See
-[Effects](effects.md), [GFX nodes](nodes/gfx.md), [Patches §7.4](patches.md#library).
+The **GFX effect family** (`GDVP_NODE_GFX_DELAY`, `_GFX_GAIN`, `_GFX_ENV`, `_GFX_APF`, `_GFX_FDN`,
+`_GFX_MOD`) is **active** and fully wired in the dispatch tables. They run on the Global EFX Bus
+(master domain, post-mix, monophonic) and produce audio. See [Effects](effects.md) and
+[GFX nodes](nodes/gfx.md).
+
+**Impact on patches:** any `.gvp` that includes `master_bus` or one of the legacy inactive nodes
+**loads and plays its synthesis graph**, but the listed node is dropped. The `*_reverb`,
+`*_phaser`, `*_chorus`, `*_hall`, `*_fuzz`, `*_fold`, `*_compressed`, `*_tremolo`, `*_warm` and
+similar effects-suffixed patches now render their GFX tails. See [Patches §7.4](patches.md#library).
 
 ---
 
-## A.2 Active despite "PENDING" prose ✅
+## A.2 Resolved divergences ✅
 
-- `GDVP_NODE_EXCITER` — `gdvp_nodes.h` prose lists it as PENDING, but **both** its processor and
-  updater are registered in `gdvp_dsp_dispatch.c`. It works. See [Exciter](nodes/exciter.md).
-- `GDVP_NODE_MIXER` — header prose calls it PENDING in one place; it is in fact active and also
-  auto-injected by the compiler. See [Mixer](nodes/mixer.md).
+- `GDVP_NODE_EXCITER` and `GDVP_NODE_MIXER` are now documented as active in `gdvp_nodes.h` and
+  are registered in `gdvp_dsp_dispatch.c`. See [Exciter](nodes/exciter.md) and [Mixer](nodes/mixer.md).
+- The GFX effect family (`GDVP_NODE_GFX_*`) is documented as active in `gdvp_nodes.h` and fully
+  wired in the dispatch tables. See [Effects](effects.md) and [GFX nodes](nodes/gfx.md).
 
-The header's "NODE TYPE STATUS SUMMARY" comment block is stale relative to the enum and dispatch
-table; trust the dispatch table.
+The header's "NODE TYPE STATUS SUMMARY" comment block is now aligned with the dispatch table.
 
 ---
 
@@ -61,7 +63,7 @@ Received and stored in the MIDI matrix, but currently no engine action ([MIDI §
 - CC 64 Sustain pedal, CC 65 Portamento on/off, CC 66 Sostenuto, CC 68 Legato footswitch.
 - CC 126 Mono Mode On, CC 127 Poly Mode On (do not reconfigure the VAM — change voice mode via the
   front panel / `gdvp_param_bridge_update_voice_mode` instead).
-- CC 91/93 (reverb/chorus depth) route as generic sound-controllers but drive the inactive GFX
+- CC 91/93 (reverb/chorus depth) route as generic sound-controllers but drive the active GFX
   effects.
 
 ---
@@ -69,7 +71,7 @@ Received and stored in the MIDI matrix, but currently no engine action ([MIDI §
 ## A.5 Things that DO work and might surprise you ✅
 
 - **DELAY voice mode** is a real, working strum/echo built from staggered voices — independent of
-  the (inactive) GFX delay line. See [Performance §3.6](performance.md#strum--delay-allocation).
+  the GFX delay line. See [Performance §3.6](performance.md#strum--delay-allocation).
 - **Per-voice filter decorrelation / cascade** uses a voice-indexed static bank, so steep slopes
   and section-2 state are correct and per-voice. See [Filter §slope](nodes/filter.md#slope).
 - **Exciter per-voice decorrelation** spreads chord voices across the shared noise ring. See

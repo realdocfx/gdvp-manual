@@ -32,7 +32,7 @@ behaviour is verified by the engine's VCA convergence tests (`test_gdvp_vca_conv
 With saturation enabled, the output passes through a LUT-based tanh curve
 (`gdvp_lut_apply_tanh_saturation`) for analog-style soft clipping without any runtime math. Use
 it to add warmth/limiting at the amp stage; for more aggressive or varied nonlinear shaping the
-[GFX Gain](gfx.md#gain) node (when active) offers fold/µ-law/rectify curves.
+[GFX Gain](gfx.md#gain) node offers fold/µ-law/rectify curves.
 
 ### Mute vs. bypass
 `Mute` keeps the node in the execution plan but forces zero output. This differs from the

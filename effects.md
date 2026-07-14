@@ -22,23 +22,22 @@ The design intent: spatial acoustics (reverb/delay/diffusion) on the master bus;
 
 ---
 
-## 5.2 The GFX family (designed effects)
+## 5.2 The GFX family (active effects)
 
-The [GFX nodes](nodes/gfx.md) are the intended effects engine — delay, FDN reverb, all-pass
+The [GFX nodes](nodes/gfx.md) are the in-graph effects engine — delay, FDN reverb, all-pass
 phaser/diffuser, nonlinear gain (sat/fold/µ-law/ring), envelope-follower dynamics, and a
 universal parameter modulator. They're built on a small set of reusable primitives ("G×T
 decomposition") so many named effects share a few DSP cells.
 
-> ## ⛔ Status: the GFX processor table is empty
+> ## ✅ Status: the GFX family is fully wired
 >
-> Every GFX slot in `gdvp_node_processors[]` is `NULL`, so the voice executor **skips all GFX
-> nodes**. They render **no audio** on the current build. Patches that name them
-> (`*_reverb.gvp`, `*_phaser.gvp`, `*_chorus.gvp`, `*_hall.gvp`, `*_fuzz.gvp`, …) still play their
-> synthesis graph; the effect node is silently dropped. The `master_bus` node type is likewise
-> `NULL`.
+> Every GFX slot in `gdvp_node_processors[]` and `gdvp_node_updaters[]` is now populated. The
+> voice executor runs them on the **Global EFX Bus** (master domain, post-mix, monophonic) so
+> spatial acoustics and global modulation are rendered as designed. The `master_bus` node type
+> remains reserved/inactive; master fold-down and Global EFX scheduling are handled by the
+> `gdvp_dsp_iron_ceiling` pipeline.
 >
-> This is the single biggest as-built/as-designed gap in the engine. Full per-node design detail
-> is on the [GFX page](nodes/gfx.md); the divergence is logged in [Appendix A](appendix-status.md).
+> Full per-node design detail is on the [GFX page](nodes/gfx.md).
 
 ---
 

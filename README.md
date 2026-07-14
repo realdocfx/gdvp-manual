@@ -12,16 +12,16 @@ Engine v1.4.0 · Canonical MIDI Schema (MIS) v0.9.1 · Manual revision 1
 ---
 
 This manual describes how to *operate* GDVP: how to play it, program patches, route
-modulation, manage parts, and drive it over MIDI. It is produced from Codebase Dcumentation via Doxygen
+modulation, manage parts, and drive it over MIDI. It is produced from Codebase Documentation via Doxygen
  **as-built behaviour** — what the compiled
 engine actually does, including the places where the running code diverges from its own
 header comments. Where that divergence matters to you as an operator, it is flagged
 explicitly (see [Engine Status & Known Divergences](appendix-status.md)).
 
-> **As-built, not as-marketed.** Several node types have source files and example patches
-> but are wired to `NULL` in the live dispatch table, meaning they currently produce no
-> audio. The [node reference](nodes/README.md) marks each node ✅ Active or ⛔ Inactive
-> against the dispatch table in `gdvp_dsp_dispatch.c`, not against prose.
+> **As-built, not as-marketed.** The [node reference](nodes/README.md) marks each node ✅ Active
+> or ⛔ Inactive against the dispatch table in `gdvp_dsp_dispatch.c`, not against prose. The GFX
+> effect family and Exciter are now active and produce audio; `master_bus` and the legacy FDN slot
+> remain inactive. See [Engine Status & Known Divergences](appendix-status.md).
 
 ## How GDVP reaches your ears
 
@@ -73,3 +73,8 @@ GDVP ships in three operator-facing forms, all driving the same deterministic co
 Copyright François-Xavier Briollais. All rights reserved.
 
 See [`../README.md`](../README.md) for the parent `gdvp-server-web` overview.
+
+## Engineering reference
+
+- **[`gdvp-core-dsp/gdvp/docs/adr/README.md`](../../gdvp-core-dsp/gdvp/docs/adr/README.md)** — Architectural decisions behind the engine.
+- **[`gdvp-server-web/deploy/runbooks/README.md`](../deploy/runbooks/README.md)** — Operational runbooks for the license server.

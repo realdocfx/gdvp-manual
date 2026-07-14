@@ -40,11 +40,11 @@ in `gdvp_nodes.h`.
 | GFX All-pass | `GDVP_NODE_GFX_APF` | ✅ Active (master-domain) | [gfx.md#apf](gfx.md#apf) |
 | GFX FDN reverb | `GDVP_NODE_GFX_FDN` | ✅ Active (master-domain) | [gfx.md#fdn](gfx.md#fdn) |
 | GFX Modulator | `GDVP_NODE_GFX_MOD` | ✅ Active (master-domain) | [gfx.md#mod](gfx.md#mod) |
-| Master Bus | `GDVP_NODE_MASTER_BUS` | ⛔ Inactive (NULL) | — |
-| ROM Reader | `GDVP_NODE_ROM_READER` | ⛔ Inactive (NULL) | — |
-| Feedback | `GDVP_NODE_FEEDBACK` | ⛔ Inactive (NULL) | — |
-| Macro Delay | `GDVP_NODE_MACRO_DELAY` | ⛔ Inactive (NULL) | — |
-| FDN (legacy slot) | `GDVP_NODE_FDN` | ⛔ Inactive (NULL) | — |
+| Master Bus | `GDVP_NODE_MASTER_BUS` | ⛔ Inactive (NULL) | [master-bus.md](master-bus.md) |
+| ROM Reader | `GDVP_NODE_ROM_READER` | ⛔ Inactive (NULL) | [rom-reader.md](rom-reader.md) |
+| Feedback | `GDVP_NODE_FEEDBACK` | ⛔ Inactive (NULL) | [feedback.md](feedback.md) |
+| Macro Delay | `GDVP_NODE_MACRO_DELAY` | ⛔ Inactive (NULL) | [macro-delay.md](macro-delay.md) |
+| FDN (legacy slot) | `GDVP_NODE_FDN` | ⛔ Inactive (NULL) | [fdn-legacy.md](fdn-legacy.md) |
 
 > **Reading the GFX rows.** The GFX-family DSP source files exist (`gdvp_dsp_gfx_*.c`) and
 > all GFX nodes are now fully implemented with registered processors and updaters in the

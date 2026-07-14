@@ -102,7 +102,7 @@ engine action** — the handler returns success without doing anything. Don't re
 | CC 68 Legato footswitch | ⚠️ tracked, no action |
 | CC 126 Mono Mode On | ⚠️ acknowledged, does not reconfigure the VAM |
 | CC 127 Poly Mode On | ⚠️ acknowledged, does not reconfigure the VAM |
-| CC 91 Reverb depth, CC 93 Chorus depth | routed as generic sound-controllers, but the [GFX effects](effects.md) they would drive are inactive |
+| CC 91 Reverb depth, CC 93 Chorus depth | routed as generic sound-controllers; the [GFX effects](effects.md) they drive are now active and wired to the Global EFX Bus |
 
 To change voice mode today, use the [front-panel control](performance.md#voice-modes) /
 `gdvp_param_bridge_update_voice_mode`, not CC 126/127. See [Appendix A](appendix-status.md).

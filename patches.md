@@ -32,7 +32,7 @@ An array of node objects. Each has:
   ([DAG §2.3](dag.md#compilation-from-your-wiring-to-the-execution-plan)). Duplicate IDs are a
   parse error.
 - **`type`** — a string naming the node: `oscillator`, `filter`, `envelope`, `lfo`, `vca`,
-  `mixer`, `panner`, `exciter`, plus the (currently inactive) `gfx_*` and `master_bus` types.
+  `mixer`, `panner`, `exciter`, the active `gfx_*` types, and the inactive `master_bus` type.
 - **`params`** — type-specific fields. The names match the node pages; e.g. an oscillator takes
   `waveform`, `pitch`, `amplitude`, `fm_depth`, `pulse_width`, `detune`; a filter takes `mode`,
   `cutoff`, `resonance`, `slope`; an envelope takes `attack`, `decay`, `sustain`, `release`,
@@ -129,17 +129,16 @@ the [front panel](gui.md) and read the graph. Grouped by what they teach:
 **Percussion / noise (Exciter)**
 `808_kick`, `Grime 808 kick`, `sub_kick`, `noise_snare`, `metallic_hat`, `vinyl_dust`.
 
-**Effects-suffixed (⚠️ synthesis plays; the GFX tail does not — see below)**
+**Effects-suffixed (✅ GFX effects active)**
 `*_chorus`, `*_phaser`, `*_reverb`, `*_hall`, `*_echo`, `*_fuzz`, `*_fold`, `*_saturated`,
 `*_compressed`, `*_tremolo`, `*_warm` (e.g. `bass_lead_chorus`, `organic_pad_reverb`,
 `acid_squelch_hall`, `simple_synth_echo`, `overdriven_organ_fuzz`).
 
-> ⚠️ **Effects-suffixed patches.** These declare a [GFX node](nodes/gfx.md) (delay, FDN reverb,
-> phaser, fold, etc.) plus often a `master_bus`. On the current build those node types are `NULL`
-> in the dispatch table and are **silently skipped** — the patch plays its oscillator→filter→amp
-> chain, but the named effect is not rendered. Use them to study routing; don't expect the reverb
-> tail yet. See [Effects §5.2](effects.md#the-gfx-family-designed-effects) and
-> [Appendix A](appendix-status.md).
+> ✅ **Effects-suffixed patches.** These declare [GFX nodes](nodes/gfx.md) (delay, FDN reverb,
+> phaser, fold, etc.). The GFX family is now fully wired in the dispatch tables and runs on the
+> Global EFX Bus (master-domain, post-mix). The synthesis graph plus the effect tail are rendered.
+> Patches that also include a `master_bus` will skip only that inactive node. See
+> [Effects §5.2](effects.md#the-gfx-family-designed-effects) and [Appendix A](appendix-status.md).
 
 ---
 
