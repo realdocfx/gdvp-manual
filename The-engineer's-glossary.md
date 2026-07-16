@@ -1,4 +1,4 @@
-# Glossary
+# The engineer's glossary
 
 [← Manual index](README.md)
 
