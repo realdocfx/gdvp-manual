@@ -28,12 +28,12 @@ Continuous colored noise — beds, wind, breath, filter excitation. See [Shape](
 #### BEHAVIOR
 ##### Contextual to [Panner](#PAN)
 Select between two modes : linear (straight amplitude crossfade) or constant-power (a constante-power (-3 dB center) curve).
--  **NO PAN LAW : Straight Amplitude Crossfade (Linear Panning)
+-  **NO PAN LAW** : Straight Amplitude Crossfade (Linear Panning)
 - **How it Works:** The volume changes in a strict, straight mathematical line. If the panner is dead center, both the left and right speakers output exactly 50% of the signal's amplitude.
     
 - **The Sonic Effect:** Because of how acoustic energy and human hearing work, two speakers playing at 50% amplitude do not sound as loud as one speaker playing at 100%. If you sweep a sound left and right using this setting, it will sound like the volume noticeably drops or loses energy every time it passes through the center.
 
--  **WITH PAN LAW : Constant-Power (-3 dB Center) Curve
+-  **WITH PAN LAW** : Constant-Power (-3 dB Center) Curve
 - **How it Works:** Instead of a straight line, the volume changes along a rounded, calculated curve (typically based on sine and cosine functions). When the panner is dead center, both speakers output at roughly 70.7% amplitude, which equals exactly a **-3 dB** reduction per channel.
     
 - **The Sonic Effect:** When the acoustic power of two speakers playing at -3 dB is combined in a room (or in your headphones), they add up perfectly to 100% of the original perceived power. This eliminates the volume dip, ensuring the sound maintains a perfectly consistent, smooth loudness as it travels from hard-left to hard-right.
