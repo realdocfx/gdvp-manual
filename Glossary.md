@@ -74,7 +74,7 @@ Direct Acyclic Graph. This is the graph in the middle of the main page, where no
 See [Rate](#RATE).
 
 #### DETUNE
-##### Contextual to [Oscillator](#OSCILLTOR_OSC)
+##### Contextual to [Oscillator](#OSCILLATOR_OSC)
 See [Pitch](#PITCH).
 
 #### DLY_DELAY_STRUM
