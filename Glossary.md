@@ -1,6 +1,6 @@
 ### A
 #### AMP
-##### Contextual to [Exciter](#EXCITER/EXC) 
+##### Contextual to [Exciter](#EXCITER EXC) 
 Amplificator. See [Shape](#SHAPE).
 
 #### AMPLITUDE 
@@ -129,7 +129,7 @@ To move the handles, click, hold down, and drag.
 
 #### EVOLUTION
 Macro depth of the [LFO](#LFO). Depth of the drift layer (filtered chaos).
-#### EXCITER/EXC 
+#### EXCITER EXC 
 Node. The exciter taps a shared noise engine and shapes it.
 
 ### F
