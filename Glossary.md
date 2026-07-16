@@ -77,9 +77,9 @@ See [Pitch](#PITCH).
 #### DLY/DELAY_STRUM
 ##### Contextual to [Part Global](#PART_GLOBAL)
 DELAY mode generates multiple voices from a single note, with staggered onset times — a strum or echo-like effect created using actual voices rather than a delay line.
-    TIME (Timing) : Stagger interval between successive voices.
-    VOICES (Density) : The number of [voices](#VOICE) in the strum.
-    DRIFT (Pitch) : Pitch drift added for each successive voice, to simulate human-style strumming detuning.
+    * TIME (Timing) : Stagger interval between successive voices.
+    * VOICES (Density) : The number of [voices](#VOICE) in the strum.
+    * DRIFT (Pitch) : Pitch drift added for each successive voice, to simulate human-style strumming detuning.
 
 #### DRIFT
 ##### Contextual to [Exciter](#EXCITER/EXC)
@@ -277,13 +277,13 @@ Voice allocating engine. This panel manages how note data is distributed to voic
         *VOICES (Density)* : The number of [voices](#VOICE) in the strum.
         *DRIFT (Pitch)* : Pitch drift added for each successive voice, to simulate human-style strumming detuning.
     - **ARP (Arpeggiator)** : Arpeggiator CV (CONTROL VOLTAGE) and not MIDI.
-    - This voice mode takes the notes of a held chord and automatically triggers the voice to play them one by one in a rhythmic sequence. 
-        *PATTERN* : Sequence direction : `UP / DOWN (DN) / UP+DOWN (U+D) / RANDOM (RND)`
-        *TEMPO / DIVISION (DIV)* : The tempo division control allows you to subdivide that master beat into precise mathematical fractions. A beat will be divided into 4, 8, or 16 parts. The triplets (denoted with a "T", e.g., 1/8T) fit three pulses into the exact space where two standard pulses would normally go. _Values:_ `1/4`, `1/8`, `1/8T`, `1/16`, `1/16T`, `1/32`.
-        *LENGTH (STEPS)* : truncate the pattern to a fixed number of steps. `Values: 1 to 64`. 
-        *VOICING* : Each step can be a single note or a voiced chord. `Values: MONO, MULTI, chord presets (MAJ, MIN, ...)`.
-        *LATCH* : Octave-span the pattern walks through. `Values: 1 to 8 octaves. HOLD` keeps the arpeggio going.  
-        *DYNAMICS (GATE)* : Fraction of each step the note sounds. `Values: 1 to 255. 128 = 50%`´ 
+     This voice mode takes the notes of a held chord and automatically triggers the voice to play them one by one in a rhythmic sequence. 
+        * *PATTERN* : Sequence direction : `UP / DOWN (DN) / UP+DOWN (U+D) / RANDOM (RND)`
+        * *TEMPO / DIVISION (DIV)* : The tempo division control allows you to subdivide that master beat into precise mathematical fractions. A beat will be divided into 4, 8, or 16 parts. The triplets (denoted with a "T", e.g., 1/8T) fit three pulses into the exact space where two standard pulses would normally go. _Values:_ `1/4`, `1/8`, `1/8T`, `1/16`, `1/16T`, `1/32`.
+        * *LENGTH (STEPS)* : truncate the pattern to a fixed number of steps. `Values: 1 to 64`. 
+        * *VOICING* : Each step can be a single note or a voiced chord. `Values: MONO, MULTI, chord presets (MAJ, MIN, ...)`.
+        * *LATCH* : Octave-span the pattern walks through. `Values: 1 to 8 octaves. HOLD` keeps the arpeggio going.  
+        * *DYNAMICS (GATE)* : Fraction of each step the note sounds. `Values: 1 to 255. 128 = 50%`´ 
 #### PITCH
 ##### Contextual to [Oscillator](#OSCILLATOR/OSC)
 Spans ±1 semitone (~1 cent per step) for analog fan-out without disturbing glide targets.
@@ -398,8 +398,8 @@ Toggles execute exactly on the click edge frame within an evaluated hitbox. Exem
 #### UNI/UNISON
 ##### Contextual to [Part Global](#PART_GLOBAL)
 Voice mode. Takes some or all available [voices](#VOICE) and stacks them onto a single keypress. The voices are often slightly detuned from one another to create a massive, thick, and wide sound. 
-    VOICES (DENSITY) : increases the number of [voices](#VOICE) per key. 
-    SPREAD (DETUNE) : increases the pitch difference between each [voices](#VOICE).
+    * VOICES (DENSITY) : increases the number of [voices](#VOICE) per key. 
+    * SPREAD (DETUNE) : increases the pitch difference between each [voices](#VOICE).
 
 
 ### V
