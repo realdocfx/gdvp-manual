@@ -10,12 +10,12 @@ Base output gain.
 #### ARPEGGIATOR/ARP
 ##### Contextual to [Part Global](#PART_GLOBAL)
 - This voice mode takes the notes of a held chord and automatically triggers the voice to play them one by one in a rhythmic sequence. 
-    *PATTERN* : Sequence direction : `UP / DOWN (DN) / UP+DOWN (U+D) / RANDOM (RND)`
-    *TEMPO / DIVISION (DIV)* : The tempo division control allows you to subdivide that master beat into precise mathematical fractions. A beat will be divided into 4, 8, or 16 parts. The triplets (denoted with a "T", e.g., 1/8T) fit three pulses into the exact space where two standard pulses would normally go. _Values:_ `1/4`, `1/8`, `1/8T`, `1/16`, `1/16T`, `1/32`.
-    *LENGTH (STEPS)* : truncate the pattern to a fixed number of steps. `Values: 1 to 64`. 
-    *VOICING* : Each step can be a single note or a voiced chord. `Values: MONO, MULTI, chord presets (MAJ, MIN, ...)`.
-    *LATCH* : Octave-span the pattern walks through. `Values: 1 to 8 octaves. HOLD` keeps the arpeggio going.  
-    *DYNAMICS (GATE)* : Fraction of each step the note sounds. `Values: 1 to 255. 128 = 50%`´ 
+    * *PATTERN* : Sequence direction : `UP / DOWN (DN) / UP+DOWN (U+D) / RANDOM (RND)`
+    * *TEMPO / DIVISION (DIV)* : The tempo division control allows you to subdivide that master beat into precise mathematical fractions. A beat will be divided into 4, 8, or 16 parts. The triplets (denoted with a "T", e.g., 1/8T) fit three pulses into the exact space where two standard pulses would normally go. _Values:_ `1/4`, `1/8`, `1/8T`, `1/16`, `1/16T`, `1/32`.
+    * *LENGTH (STEPS)* : truncate the pattern to a fixed number of steps. `Values: 1 to 64`. 
+    * *VOICING* : Each step can be a single note or a voiced chord. `Values: MONO, MULTI, chord presets (MAJ, MIN, ...)`.
+    * *LATCH* : Octave-span the pattern walks through. `Values: 1 to 8 octaves. HOLD` keeps the arpeggio going.  
+    * *DYNAMICS (GATE)* : Fraction of each step the note sounds. `Values: 1 to 255. 128 = 50%`´ 
 
 ***Arpeggiator CV (CONTROL VOLTAGE)** and not MIDI. CV is an **analog**, physical standard. A CV arpeggiator generates raw, measurable electricity. To change the pitch of the arpeggio, it literally increases or decreases the voltage.*
 
