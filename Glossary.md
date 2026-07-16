@@ -398,8 +398,8 @@ Toggles execute exactly on the click edge frame within an evaluated hitbox. Exem
 #### UNI/UNISON
 ##### Contextual to [Part Global](#PART_GLOBAL)
 Voice mode. Takes some or all available [voices](#VOICE) and stacks them onto a single keypress. The voices are often slightly detuned from one another to create a massive, thick, and wide sound. 
-    * VOICES (DENSITY) : increases the number of [voices](#VOICE) per key. 
-    * SPREAD (DETUNE) : increases the pitch difference between each [voices](#VOICE).
+* VOICES (DENSITY) : increases the number of [voices](#VOICE) per key. 
+* SPREAD (DETUNE) : increases the pitch difference between each [voices](#VOICE).
 
 
 ### V
