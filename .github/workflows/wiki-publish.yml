@@ -49,6 +49,14 @@ jobs:
         if: steps.wiki.outputs.exists == 'true'
         run: SSOT=ssot WIKI=wiki bash ssot/scripts/wiki_sync.sh publish
 
+      - name: Generate recursive sidebar from SUMMARY (SSOT nav)
+        if: steps.wiki.outputs.exists == 'true'
+        # _Sidebar.md is the wiki's projection of SUMMARY.md — the single nav SSOT.
+        # Regenerated every publish so the wiki's recursive sidebar can never drift
+        # from the manual's structure. wiki_sync.sh preserves _Sidebar.md (never
+        # mirrored back), so this is the only writer.
+        run: python3 ssot/scripts/gen_sidebar.py --summary ssot/SUMMARY.md --out wiki/_Sidebar.md --repo "${{ github.repository }}"
+
       - name: Commit + push if changed
         if: steps.wiki.outputs.exists == 'true'
         working-directory: wiki

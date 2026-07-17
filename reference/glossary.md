@@ -1,15 +1,15 @@
 ### A
 
 #### AMP
-##### Contextual to [Exciter](#EXCITER_EXC) 
-Amplificator. See [Shape](#SHAPE).
+##### Contextual to [Exciter](#exciter_exc) 
+Amplificator. See [Shape](#shape_shpe).
 
 #### AMPLITUDE 
-##### Contextual to [VCA](#VCA)
+##### Contextual to [VCA](#vca)
 Base output gain. 
 
 #### ARPEGGIATOR_ARP
-##### Contextual to [Part Global](#PART_GLOBAL)
+##### Contextual to [Part Global](#part_global)
 - This voice mode takes the notes of a held chord and automatically triggers the voice to play them one by one in a rhythmic sequence. 
     * *PATTERN* : Sequence direction : `UP / DOWN (DN) / UP+DOWN (U+D) / RANDOM (RND)`
     * *TEMPO / DIVISION (DIV)* : The tempo division control allows you to subdivide that master beat into precise mathematical fractions. A beat will be divided into 4, 8, or 16 parts. The triplets (denoted with a "T", e.g., 1/8T) fit three pulses into the exact space where two standard pulses would normally go. _Values:_ `1/4`, `1/8`, `1/8T`, `1/16`, `1/16T`, `1/32`.
@@ -22,13 +22,13 @@ Base output gain.
 ***Arpeggiator CV (CONTROL VOLTAGE)** and not MIDI. CV is an **analog**, physical standard. A CV arpeggiator generates raw, measurable electricity. To change the pitch of the arpeggio, it literally increases or decreases the voltage.*
 
 #### AUDIO
-##### Contextual to [Exciter](#EXCITER_EXC)
-Continuous colored noise — beds, wind, breath, filter excitation. See [Shape](#SHAPE).
+##### Contextual to [Exciter](#exciter_exc)
+Continuous colored noise — beds, wind, breath, filter excitation. See [Shape](#shape_shpe).
 
 ### B
 
 #### BEHAVIOR
-##### Contextual to [Panner](#PAN)
+##### Contextual to [Panner](#pan)
 Select between two modes : linear (straight amplitude crossfade) or constant-power (a constante-power (-3 dB center) curve).
 * **NO PAN LAW** : Straight Amplitude Crossfade (Linear Panning)
 - **How it Works:** The volume changes in a strict, straight mathematical line. If the panner is dead center, both the left and right speakers output exactly 50% of the signal's amplitude.
@@ -41,29 +41,29 @@ Select between two modes : linear (straight amplitude crossfade) or constant-pow
 - **The Sonic Effect:** When the acoustic power of two speakers playing at -3 dB is combined in a room (or in your headphones), they add up perfectly to 100% of the original perceived power. This eliminates the volume dip, ensuring the sound maintains a perfectly consistent, smooth loudness as it travels from hard-left to hard-right.
 
 #### BIPOLR
-##### Contextual to [Exciter](#EXCITER_EXC) 
-See [Polarity_bipolr](#POLARITY_BIPOLR).
+##### Contextual to [Exciter](#exciter_exc) 
+See [Polarity_bipolr](#polarity_bipolr).
 
 #### BP
-##### Contextual to [Filter](#FILTER_FLT)
+##### Contextual to [Filter](#filter_flt)
 Band-pass. Allows only a specific "band" (or slice) of frequencies to pass through, simultaneously cutting both the extreme lows and the extreme highs outside of that slice.
 
 ### C
 
 #### CHRD_CHORD
-##### Contextual to [Part Global](#PART_GLOBAL)
-Voice mode. Pressing a single key triggers an entire predefined chord rather than just a single note. The played note is the root; intervals add on top. Each chord tone consumes a [voice](#VOICE), so a MAJ7 chord uses four voices per key. 
+##### Contextual to [Part Global](#part_global)
+Voice mode. Pressing a single key triggers an entire predefined chord rather than just a single note. The played note is the root; intervals add on top. Each chord tone consumes a [voice](#voice), so a MAJ7 chord uses four voices per key. 
     VOICING : Clickable text box (e.g., `MAJ ▼`) triggering a modal dropdown. Select the chord of your interest : `MAJ`, `MIN`, `MAJ7`, `MIN7`, `DOM7`, `DIM`, `AUG`, `SUS4`, `SUS2`, `PWR`, `OCT`, `5+OCT`.
 
 #### CLICK :
-See **[Toggle.](#TOGGLE)**
+See **[Toggle.](#toggle)**
 
 #### CLOCK 
-##### Contextual to [Exciter](#EXCITER_EXC)
+##### Contextual to [Exciter](#exciter_exc)
 Toggle button (`SYNC`) enabling sample-accurate tempo latching.
 
 #### COLOR_COL 
-##### Contextual to [Exciter](#EXCITER_EXC) 
+##### Contextual to [Exciter](#exciter_exc) 
 A mapped rotary knob selecting the spectral tilt.  _Values:_ `WHT`, `PNK`, `RED`, `BLU`, `VIO`. See (https://en.wikipedia.org/wiki/Colors_of_noise) for details.
 
 ### D
@@ -72,39 +72,39 @@ A mapped rotary knob selecting the spectral tilt.  _Values:_ `WHT`, `PNK`, `RED`
 Direct Acyclic Graph. This is the graph in the middle of the main page, where nodes interact. 
 
 #### DENSITY_DENS 
-See [Rate](#RATE).
+See [Rate](#rate).
 
 #### DETUNE
-##### Contextual to [Oscillator](#OSCILLATOR_OSC)
-See [Pitch](#PITCH).
+##### Contextual to [Oscillator](#oscillator_osc)
+See [Pitch](#pitch).
 
 #### DLY_or_DELAY_STRUM
-##### Contextual to [Part Global](#PART_GLOBAL)
+##### Contextual to [Part Global](#part_global)
 DELAY mode generates multiple voices from a single note, with staggered onset times — a strum or echo-like effect created using actual voices rather than a delay line.
 * TIME (Timing) : Stagger interval between successive voices.
-* VOICES (Density) : The number of [voices](#VOICE) in the strum.
+* VOICES (Density) : The number of [voices](#voice) in the strum.
 * DRIFT (Pitch) : Pitch drift added for each successive voice, to simulate human-style strumming detuning.
 
 #### DRIFT
-##### Contextual to [Exciter](#EXCITER_EXC)
-Type of [Source](#SOURCE_SRC). This operates strictly in the sub-audio domain, providing slow, wandering modulation over seconds or minutes.
+##### Contextual to [Exciter](#exciter_exc)
+Type of [Source](#source_src). This operates strictly in the sub-audio domain, providing slow, wandering modulation over seconds or minutes.
 
 #### DRIVE
-##### Contextual to [VCA](#VCA)
+##### Contextual to [VCA](#vca)
 Not activated. 
 
 #### DUO
-##### Contextual to [Part Global](#PART_GLOBAL)
+##### Contextual to [Part Global](#part_global)
 Duophonic mode. Two notes at a time. GLIDE (Portamento) doesn't affect the signal. 
 
 #### DUST
-##### Contextual to [Exciter](#EXCITER_EXC)
-Sparse, randomly timed discrete impulses or clicks. Rather than a wash of noise, it sounds like a Geiger counter, static electricity, or the crackle of a worn vinyl record. See [Shape](#SHAPE_SHPE).
+##### Contextual to [Exciter](#exciter_exc)
+Sparse, randomly timed discrete impulses or clicks. Rather than a wash of noise, it sounds like a Geiger counter, static electricity, or the crackle of a worn vinyl record. See [Shape](#shape_shpe).
 
 ### E
 
 #### ENGINE MODE
-##### Contextual to [Part Global](#PART_GLOBAL)
+##### Contextual to [Part Global](#part_global)
 Voice mode selection panel. 
 
 #### ENVELOPE
@@ -132,7 +132,7 @@ To move the handles, click, hold down, and drag.
 - _Values:_ `-` (Linear), `L` (Logarithmic/concave), `E` (Exponential/convex), `S` (Sigmoid/S-curve).
 
 #### EVOLUTION
-Macro depth of the [LFO](#LFO). Depth of the drift layer (filtered chaos).
+Macro depth of the [LFO](#lfo). Depth of the drift layer (filtered chaos).
 
 #### EXCITER_EXC
 Node. The exciter taps a shared noise engine and shapes it.
@@ -142,9 +142,9 @@ Node. The exciter taps a shared noise engine and shapes it.
 #### FILTER_FLT
 The filter's user interface completely does away with traditional control buttons in favor of an interactive canvas that displays the amplitude response (an interactive filter curve visualizer) and plots a polyline in real time.
 - **Character string** : A 4-way radio button strip across the top.
-    - _Values:_ [`LP`](#LP) (Low-pass), [`BP`](#BP) (Band-pass), [`HP`](#HP) (High-pass), [`NCH`](#NCH) (Notch).
+    - _Values:_ [`LP`](#lp) (Low-pass), [`BP`](#bp) (Band-pass), [`HP`](#hp) (High-pass), [`NCH`](#nch) (Notch).
 - **Cutoff / Resonance Handle**: **Drag and hold the little box on the line.** Dragging horizontally (X-axis) adjusts Cutoff. Dragging vertically (Y-axis, inverted) adjusts Resonance.
-- [**Slope Badge**](#SLOPE): A click-cycle handle box in the top-right corner of the canvas to select the filter slope. 
+- [**Slope Badge**](#slope): A click-cycle handle box in the top-right corner of the canvas to select the filter slope. 
     - _Logic:_ Clicking cycles through steepness cascades: **`6`, `12`, `18`, `24` dB/octave**
 - **Bottom line** : A text row at the bottom displays integer-calculated estimates (e.g., "CUT 1.2kHz", "RES 45%", "24 dB/oct"). 
     - **"CUT 1.2kHz"** sets the specific frequency where the filter begins to do its job. 
@@ -152,13 +152,13 @@ The filter's user interface completely does away with traditional control button
     - **"24 dB/oct"** describes how aggressively the filter removes sound beyond the cutoff point. "24 dB/oct" means that for every octave you go above or under the 1.2 kHz cutoff, the volume of those higher or lower frequencies is reduced by **24 decibels**.
 
 #### FM_DEPTH
-##### Contextual to [Oscillator](#OSCILLATOR/OSC)
+##### Contextual to [Oscillator](#oscillator_osc)
 
 #### FREQUENCY
-##### Contextual to [Filter](#FILTER/FLT)
+##### Contextual to [Filter](#filter_flt)
 Cutoff frequency. Logarithmic scale from `20Hz` to `20.0k`.
-##### Contextual to [LFO](#LFO)
-See [Rate](#RATE).
+##### Contextual to [LFO](#lfo)
+See [Rate](#rate).
 
 
 ### G
@@ -167,13 +167,13 @@ See [Rate](#RATE).
 Spans from `-inf` to `-60.0dB` up to `+6.0dB`.
 
 #### GLIDE
-##### Contextual to [Part Global](#PART_GLOBAL)
+##### Contextual to [Part Global](#part_global)
 Have no effect on the MONO, DUO and CHRD voices. Effective with LGT (Legato). 
 
 ### H
 
 #### HP
-##### Contextual to [Filter](#FILTER_FLT)
+##### Contextual to [Filter](#filter_flt)
 High-pass. Allows frequencies **above** the cutoff point to pass through, while aggressively cutting the frequencies **below** it.
 
 #### HOVER HELP BAR 
@@ -187,34 +187,34 @@ Knobs are rendered as 300-degree arcs (from 7 o'clock to 5 o'clock) with a 60-de
 ### L
 
 #### LEVEL_LVL 
-##### Contextual to [Exciter](#EXCITER_EXC) 
+##### Contextual to [Exciter](#exciter_exc) 
 Continuous knob for output level (`LVL`).
-##### Contextual to [Oscillator](#OSCILLATOR_OSC)
-See [Output](#OUTPUT).
+##### Contextual to [Oscillator](#oscillator_osc)
+See [Output](#output).
 
 #### LFO
-**Graph node.** A multi-scale low-frequency oscillator—a “temporal synthesis engine” that generates three layers of modulation ([meso](#RYTHM), [micro](#TEXTURE), [macro](#EVOLUTION)) from a single shared phase, with organic chaotic drift and per-key synchronization. It shares the oscillator’s phase mechanism while adding an output with multiple levels of depth.
+**Graph node.** A multi-scale low-frequency oscillator—a “temporal synthesis engine” that generates three layers of modulation ([meso](#rythm), [micro](#texture), [macro](#evolution)) from a single shared phase, with organic chaotic drift and per-key synchronization. It shares the oscillator’s phase mechanism while adding an output with multiple levels of depth.
 
 Because you cannot hear an LFO directly as audio, it is used exclusively as a **control signal**. Its purpose is to rhythmically modulate (automatically adjust) other parameters within a synthesizer over time. Think of an LFO as an "invisible hand" that continuously turns a specific knob back and forth for you at a steady, predictable pace.
 
 #### LGT_LEGATO
-##### Contextual to [Part Global](#PART_GLOBAL)
+##### Contextual to [Part Global](#part_global)
 Monophonic voice mode. GLIDE TIME (Portamento) affects the legato between notes. 
 
 #### LP
-##### Contextual to [Filter](#FILTER_FLT)
+##### Contextual to [Filter](#filter_flt)
 Low-pass. Allows frequencies **below** the cutoff point to pass through untouched, while rolling off or cutting frequencies **above** that point.
 
 ### M
 
 #### MAIN
-##### Contextual to [Mixer](#MIXER_MIX)
+##### Contextual to [Mixer](#mixer_mix)
 Output gain. 
 #### MAPPED ROTARIES 
 Instead of dropdown menus, discrete enumerations (like noise color in **exciter** node) are selected via "mapped encoder knobs", where turning the knob snaps between string-labelled text values.
 
 #### MIXER_MIX
-Graph node. Usually auto-injected by the [DAG](#DAG) compiler when edges converge, rather than placed manually.
+Graph node. Usually auto-injected by the [DAG](#dag) compiler when edges converge, rather than placed manually.
 ###### - OUTPUT / MAIN : Master gain
 ###### - MUTE / STATE : Silence the mix output
 ###### - [IN 1] : Input gain
@@ -223,23 +223,23 @@ Graph node. Usually auto-injected by the [DAG](#DAG) compiler when edges converg
 - **Auto-injection.** When you wire two oscillators into one filter input, the compiler places a mix er in front of the filter and routes the three sources through it. The patch's _post-compilation_ edge list (what the front panel draws) will show the injected mixer even though you didn't add it. You can add 6 inputs maximum. 
 
 #### MODULATION 
-##### Contextual to [Oscillator](#OSCILLATOR_OSC)
-Knob [FM DEPTH](#FM_DEPTH). **FM Depth** dictates the intensity of the frequency modulation being applied to an oscillator.
+##### Contextual to [Oscillator](#oscillator_osc)
+Knob [FM DEPTH](#fm_depth). **FM Depth** dictates the intensity of the frequency modulation being applied to an oscillator.
 
 #### MONO
-##### Contextual to [Part Global](#PART_GLOBAL)
+##### Contextual to [Part Global](#part_global)
 Monophonic voice mode. GLIDE (Portamento) knob doesn't affect the signal.
 
 #### MUTE
-##### Contextual to [VCA](#VCA)
-See [State](#STATE).
-##### Contextual to [Mixer](#MIXER_MIX)
+##### Contextual to [VCA](#vca)
+See [State](#state).
+##### Contextual to [Mixer](#mixer_mix)
 Silence the mix output. 
 
 ### N
 
 #### NCH
-##### Contextual to [Filter](#FILTER_FLT)
+##### Contextual to [Filter](#filter_flt)
 Notch. The exact opposite of a band pass filter. It drastically cuts a specific, narrow band of frequencies while allowing the lows and highs on either side to pass perfectly fine.
 
 #### NOTE 
@@ -248,13 +248,13 @@ Notch. The exact opposite of a band pass filter. It drastically cuts a specific,
 ### O
 
 #### OSCILLATOR_OSC
-Graph node. The primary tone generator with six [waveforms](#WAVEFORM), linear FM, pulse-width control, per-read detune, and intrinsic pitch glide.
+Graph node. The primary tone generator with six [waveforms](#waveform), linear FM, pulse-width control, per-read detune, and intrinsic pitch glide.
 
 #### OUTPUT
-##### Contextual to [Oscillator](#OSCILLATOR_OSC)
+##### Contextual to [Oscillator](#oscillator_osc)
 Output amplitude level spanning `-inf` to `+6.0dB`.
 
-##### Contextual to [Mixer](#MIXER_MIX)
+##### Contextual to [Mixer](#mixer_mix)
 Output gain.
 
 ### P
@@ -265,61 +265,61 @@ Graph node. Panner. Interpolates from `L100` to `C` (center deadzone) to `R100`.
 #### PART_GLOBAL 
 Voice allocating engine. This panel manages how note data is distributed to voices.
 * **How to access this panel ?**  Click on the "Voice P1" button at the top right corner of the graph panel or click anywhere on the dark background around the graph. 
-* **Engine Modes :** [MONO](#MONO), [LGT (Legato)](#LGT_LEGATO), [POLY](#POLY), [UNI (Unison)](#UNI_UNISON), [DUO](#DUO), [CHRD (Chord)](#CHRD_CHORD), [DLY (Delay strum)](#DLY_or_DELAY_STRUM) and [ARP (Arpeggiator)](#ARPEGGIATOR_ARP)
+* **Engine Modes :** [MONO](#mono), [LGT (Legato)](#lgt_legato), [POLY](#poly), [UNI (Unison)](#uni_unison), [DUO](#duo), [CHRD (Chord)](#chrd_chord), [DLY (Delay strum)](#dly_or_delay_strum) and [ARP (Arpeggiator)](#arpeggiator_arp)
 
 
 #### PITCH
-##### Contextual to [Oscillator](#OSCILLATOR_OSC)
+##### Contextual to [Oscillator](#oscillator_osc)
 In the GDVP engine, Pitch is handled as a high-resolution, 14-bit Control Voltage (CV) parameter that dictates the exact fundamental frequency of your sound. This translates to an incredibly smooth, analog-like tuning and modulation experience.
 
 #### POLARITY_BIPOLR
-##### Contextual to [Exciter](#EXCITER_EXC)
+##### Contextual to [Exciter](#exciter_exc)
 Bipolar swings the output around zero rather than unipolar.
 Toggle button (`BIPOLR`) switching between unipolar and bipolar output.
 
 #### POLY
-##### Contextual to [Part Global](#PART_GLOBAL)
+##### Contextual to [Part Global](#part_global)
 Polyphonic voice mode. Play up to 128 notes simultaneously. The default for most patches. 
 
 #### POSITION
-##### Contextual to [Panner](#PAN)
+##### Contextual to [Panner](#pan)
 Define stereo placement from L (left) to R (right) with a center (c).
 
 ### Q
 
 #### QUANT
-Sample & hold quantized, random wevaform. A noise quantized following some musical grid. See [Shape](#SHAPE-SHPE).
+Sample & hold quantized, random wevaform. A noise quantized following some musical grid. See [Shape](#shape_shpe).
 
 ### R
 
 #### RATE
-##### Contextual to [Exciter](#EXCITER_EXC)
+##### Contextual to [Exciter](#exciter_exc)
 A continuous knob setting the speed/density. _Logic:_ Relabels to `[ DENSITY ]` (`DENS`) automatically if _Source_ is set to `DUST`; otherwise displays `[ RATE ]`.
 In the sub-audio range : approx. 0.05Hz to 40Hz.
-##### Contextual to [LFO](#LFO)
+##### Contextual to [LFO](#lfo)
 A continuous knob setting the speed/density.
 Renders in centi-Hz, spanning `0.05Hz` to `40.00Hz`.
 
 #### RYTHM
-Meso depth of the [LFO](#LFO). 
+Meso depth of the [LFO](#lfo). 
 
 ### S
 
 #### SATURATE
-##### Contextual to [VCA](#VCA)
+##### Contextual to [VCA](#vca)
 Not activated.
 
 #### S&H
 Sample and hold
 
 #### SHAPE_SHPE 
-##### Contextual to [Exciter](#EXCITER_EXC)
+##### Contextual to [Exciter](#exciter_exc)
 A continuous knob modifying the source. _Logic:_ Relabels to `[ AMP ]` (for DUST), `[ STEPS ]` (for QUANT), `[ SLEW ]` (for DRIFT), or `[ SHAPE ]` (default).
 
 #### SLEW
-##### Contextual to [Exciter](#EXCITER_EXC)
-See [Shape](#SHAPE_SHPE).
-##### Contextual to [LFO](#LFO)
+##### Contextual to [Exciter](#exciter_exc)
+See [Shape](#shape_shpe).
+##### Contextual to [LFO](#lfo)
 Rate inertia. Higher values cause the velocity itself to change gradually rather than in jerks.
 
 #### SLOPE
@@ -339,41 +339,41 @@ Every individual pole within the cascade attenuates the frequency spectrum by a 
 - **4-Pole (24 dB/oct):** Provides a highly aggressive slope, standard for deep bass and focused lead synthesis.
 
 #### SOURCE_SRC 
-##### Contextual to [Exciter](#EXCITER_EXC)
+##### Contextual to [Exciter](#exciter_exc)
 A mapped rotary knob selecting the randomness family. _Values:_ `AUDIO`, `DUST`, `S&H`, `QUANT`, `DRIFT`.
 
 #### SPREAD - SPRD
-##### Contextual to [Exciter](#EXCITER_EXC)
+##### Contextual to [Exciter](#exciter_exc)
 At zero spread, identical noise is sent to both speakers (pure mono). As Spread increases, the left and right channels generate mathematically independent noise streams.
 - **Sonic Effect:** Creates a massive, enveloping "wash" of sound. It is ideal for widening cymbal and hi-hat synthesis or generating immersive, airy wind textures.
 
 #### STATE
-##### Contextual to [VCA](#VCA)
+##### Contextual to [VCA](#vca)
 Forces audible silence (executes but emits zero).
-##### Contextual to [Mixer](#MIXER_MIX)
+##### Contextual to [Mixer](#mixer_mix)
 Silence the mix output. 
 
 #### STEPS 
-##### Contextual to [Exciter](#EXCITER_EXC)
-See [Shape](#SHAPE/SHPE).
+##### Contextual to [Exciter](#exciter_exc)
+See [Shape](#shape_shpe).
 
 #### SYNC
-##### Contextual to [Exciter](#EXCITER_EXC)
-See [Clock](#CLOCK).
+##### Contextual to [Exciter](#exciter_exc)
+See [Clock](#clock).
 
 ### T
 
 #### TACTILE DRAG 
-See [**Knobs**](#KNOBS).
+See [**Knobs**](#knobs).
 
 #### TEXT ENTRY 
 Uses a modal input capturing text input, featuring a blinking cursor. It strictly filters out non-filesystem-safe characters (e.g., `/`, `\`, `:`, `*`, `?`, `<`, `>`, `|`).
 
 #### TEXTURE
-Micro depth of the [LFO](#LFO). 
+Micro depth of the [LFO](#lfo). 
 
 #### TIMBRE
-##### Contextual to [Oscillator](#OSCILLATOR_OSC)
+##### Contextual to [Oscillator](#oscillator_osc)
 Width knob. Adjusts the pulse width of the Pulse shapes.
 
 #### TIME
@@ -385,10 +385,10 @@ Toggles execute exactly on the click edge frame within an evaluated hitbox. Exem
 ### U
 
 #### UNI_UNISON
-##### Contextual to [Part Global](#PART_GLOBAL)
-Voice mode. Takes some or all available [voices](#VOICE) and stacks them onto a single keypress. The voices are often slightly detuned from one another to create a massive, thick, and wide sound. 
-* VOICES (DENSITY) : increases the number of [voices](#VOICE) per key. 
-* SPREAD (DETUNE) : increases the pitch difference between each [voices](#VOICE).
+##### Contextual to [Part Global](#part_global)
+Voice mode. Takes some or all available [voices](#voice) and stacks them onto a single keypress. The voices are often slightly detuned from one another to create a massive, thick, and wide sound. 
+* VOICES (DENSITY) : increases the number of [voices](#voice) per key. 
+* SPREAD (DETUNE) : increases the pitch difference between each [voices](#voice).
 
 
 ### V
@@ -402,14 +402,14 @@ In synthesizer terminology, a **voice** is the complete, independent hardware or
 ### W
 
 #### WAVEFORM
-##### Contextual to [Oscillator](#OSCILLATOR_OSC)
+##### Contextual to [Oscillator](#oscillator_osc)
 Six waveforms : sine (SIN), square (SQR), triangle (TRI), sawtooth (SAW), pulse (PLS) and noise (NOS). 
 - **Pulse** needs the timbre value to be above 0 to work. A pulse wave is essentially a square wave where the symetrical shape has been pushed off-center (the "on" and "off" times are unequal). As the pulse becomes narrower, the sound shifts from a hollow tone to a very thin, nasal, and pinched character.
 - A **noise** waveform is a completely aperiodic, chaotic signal. Instead of generating a single pitched musical note, noise simultaneously blasts thousands of random frequencies. It sounds like a rushing waterfall, analog television static, or hissing wind. 
      - **This particular noise waveform is chromatic. This means that sound is not just random noise. It is random noise generated around a pitch.** 
-##### Contextual to [LFO](#LFO)
+##### Contextual to [LFO](#lfo)
 Six waveforms : sine (SIN), square (SQR), triangle (TRI), sawtooth (SAW), sample & hold (S&H) and noise (NOS). 
 
 #### WIDTH
-##### Contextual to [Oscillator](#OSCILLATOR_OSC)
-See [Timbre](#TIMBRE).
+##### Contextual to [Oscillator](#oscillator_osc)
+See [Timbre](#timbre).

@@ -36,6 +36,11 @@ case "$DIR" in
       case "$f" in Home.md|_Sidebar.md|_Footer.md) continue ;; esac
       [ -f "$SSOT/$f" ] || rm -f "$WIKI/$f"   # drop pages removed from the SSOT
     done
+    # Project SSOT links into the wiki's world: flat basenames + no {#..} heading
+    # anchors (GitHub wikis flatten pages and auto-anchor headings).
+    if command -v python3 >/dev/null 2>&1; then
+      python3 "$SSOT/scripts/linkfix.py" --mode to-wiki --dir "$WIKI" || true
+    fi
     ;;
   reconcile)  # wiki edits flow in: add/update only, never delete SSOT files
     list_md "$WIKI" | while read -r f; do
@@ -47,6 +52,11 @@ case "$DIR" in
         mkdir -p "$SSOT/$(dirname "$f")"; cp "$WIKI/$f" "$SSOT/$f"
       fi
     done
+    # Sanitise the wiki editor's link mangling ([[X](…/_edit#A)](#A) → [X](#a))
+    # BEFORE it lands in the SSOT, so a wiki edit can never re-poison it.
+    if command -v python3 >/dev/null 2>&1; then
+      python3 "$SSOT/scripts/linkfix.py" --mode to-ssot --dir "$SSOT" || true
+    fi
     ;;
   *) echo "unknown direction: $DIR" >&2; exit 2 ;;
 esac
