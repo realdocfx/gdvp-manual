@@ -41,7 +41,7 @@ The oscillator keeps a high-precision `smoothed_pitch_cv` (Q16.16) that chases t
 *linear* pitch CV and pitch→frequency is exponential, the resulting frequency contour is an
 exponential glide with (approximately) constant glide time regardless of interval — the correct
 behaviour for portamento. With `portamento_shift = 0`, or on a HARD_RESET, the pitch snaps
-instantly. This is the mechanism behind MONO/LEGATO [glide](../performance.md#glide).
+instantly. This is the mechanism behind MONO/LEGATO [glide](../concepts/performance.md#glide).
 
 ### Detune vs. pitch — calibration separated from intent {#detune}
 GDVP deliberately separates *musical intent* (the note → `target_pitch_cv`) from *hardware
@@ -61,7 +61,7 @@ The implemented waveforms use LDF-BLEP-style band-limiting on the discontinuous 
 run oversampled, in which case the compiler inserts [up/down-samplers](oversampling.md) around it.
 
 ## Related
-- [Performance: glide](../performance.md#glide) · [Parameters: pitch CV](../parameters.md#pitch)
+- [Performance: glide](../concepts/performance.md#glide) · [Parameters: pitch CV](../sound/parameters.md#pitch)
 - Modulate pitch/PWM from an [LFO](lfo.md) (vibrato/PWM) or [Envelope](envelope.md).
 
 ---

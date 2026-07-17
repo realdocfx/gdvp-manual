@@ -57,17 +57,17 @@ per-sample **FM-modulated** coefficient path when cutoff is being modulated at a
 When the filter runs oversampled (128-sample blocks), it does **not** approximate by halving the
 coefficient. Instead `gdvp_lut_resolve_g_ptr(frames)` selects the mathematically exact
 `g = tan(π·fc/fs)` LUT for the active rate (64 or 128). This is the "Oversampling Accuracy
-Correction" (OSAC) referenced throughout the codebase. See [Glossary: OSAC](../glossary.md#osac).
+Correction" (OSAC) referenced throughout the codebase. See [Glossary: OSAC](../reference/glossary.md#osac).
 
 ### Bifurcated cutoff/resonance
 Patch/UI cutoff and resonance write the **base** fields (`base_cutoff_q16`,
 `base_resonance_q16`); MIDI/LFO modulation writes separate **bipolar offset** fields
 (`mod_cutoff_q16`, `mod_resonance_q16`, centred at `8192`). The DSP merges both at audio rate, so
-live modulation never overwrites the knob position. See [Parameters: bifurcation](../parameters.md#bifurcation).
+live modulation never overwrites the knob position. See [Parameters: bifurcation](../sound/parameters.md#bifurcation).
 
 ## Related
 - Modulate cutoff from an [Envelope](envelope.md) (port 1) or [LFO](lfo.md) for sweeps.
-- The `acid_squelch` / `lfo_filter_sweep` examples are filter-forward patches ([library](../patches.md#library)).
+- The `acid_squelch` / `lfo_filter_sweep` examples are filter-forward patches ([library](../sound/patches.md#library)).
 
 ---
 

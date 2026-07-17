@@ -8,9 +8,9 @@
 
 **Status:** Version 1.4.0 · Active
 
-[← Performance & Expression](../performance.md) · [Manual index](../README.md) · Next: [Effects →](../effects.md)
+[← Performance & Expression](../concepts/performance.md) · [Manual index](../README.md) · Next: [Effects →](../sound/effects.md)
 
-Every sound in GDVP is built from **nodes** wired into a [graph](../dag.md). This section
+Every sound in GDVP is built from **nodes** wired into a [graph](../concepts/dag.md). This section
 documents each node type: what it does, every parameter, its range, and — critically — whether
 it is **live in the current build**.
 
@@ -49,7 +49,7 @@ in `gdvp_nodes.h`.
 > **Reading the GFX rows.** The GFX-family DSP source files exist (`gdvp_dsp_gfx_*.c`) and
 > all GFX nodes are now fully implemented with registered processors and updaters in the
 > dispatch tables. They run on the Global EFX bus (master-domain, post-mix, monophonic) for
-> spatial acoustics and global modulation. See [Effects](../effects.md) for details.
+> spatial acoustics and global modulation. See [Effects](../sound/effects.md) for details.
 
 ## How to read a node page
 
@@ -61,7 +61,7 @@ Each page follows the same layout:
 4. **Behaviour notes** — the DSP details that change how it sounds.
 5. **Source** — the files to check the claims against.
 
-Parameter ranges use the [conventions in §6](../parameters.md): 14-bit CV `0–16383` unless
+Parameter ranges use the [conventions in §6](../sound/parameters.md): 14-bit CV `0–16383` unless
 noted, `8192` = bipolar centre.
 
 ## The active signal-path nodes
@@ -81,7 +81,7 @@ These are the nodes you actually build voices from today:
 
 ---
 
-[← Performance & Expression](../performance.md) · [Manual index](../README.md) · Next: [Effects →](../effects.md)
+[← Performance & Expression](../concepts/performance.md) · [Manual index](../README.md) · Next: [Effects →](../sound/effects.md)
 
 ---
 

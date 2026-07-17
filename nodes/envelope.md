@@ -62,7 +62,7 @@ makes rapid re-triggered envelopes feel tight rather than sluggish.
 - **Retrigger (bit1):** restart the envelope on each note.
 - **Invert (bit2):** output negative-going modulation (e.g. for inverse filter sweeps).
 - **Expressive (bit3):** track continuous MPE pressure for per-note dynamics
-  ([Performance: MPE](../performance.md#mpe-per-note-expression)).
+  ([Performance: MPE](../concepts/performance.md#mpe-per-note-expression)).
 
 ### Oversampling
 When the host voice is oversampled, envelope rates are halved with a guard that prevents a

@@ -1,10 +1,10 @@
 # 6 · Parameters, Ranges & Values
 
-[← Effects](effects.md) · [Manual index](README.md) · Next: [Patch Management →](patches.md)
+[← Effects](effects.md) · [Manual index](../README.md) · Next: [Patch Management →](patches.md)
 
 This chapter is the reference for *values*: the CV conventions, the scaling math, and the
 complete table of parameter IDs the engine exposes (`gdvp_param_id_t` in
-`gdvp_parameter_bridge.h`). For an alphabetical lookup see the [Parameter Index](parameter-index.md).
+`gdvp_parameter_bridge.h`). For an alphabetical lookup see the [Parameter Index](../reference/parameter-index.md).
 
 ---
 
@@ -17,13 +17,13 @@ Almost every continuous parameter is a **14-bit control value**: integer `0–16
   negative, above is positive.
 
 The engine speaks 14 bits because that is high-resolution MIDI's resolution; a 7-bit MIDI CC is
-expanded to 14-bit on entry (see [MIDI 14-bit](midi.md#highres)). The UI knobs and the `.gvp`
+expanded to 14-bit on entry (see [MIDI 14-bit](../control/midi.md#highres)). The UI knobs and the `.gvp`
 file use the same 14-bit currency, so a value is portable between knob, file and MIDI.
 
 A few discrete parameters break the mould: enums (waveform `0–5`, filter mode `0–3`, slope
 `0–3`), booleans (mute, saturation, pan law), and the **detune** field which is a signed 8-bit
 trim (±128 ≈ ±1 semitone). Voice-allocation params (glide, unison, arp…) are **UI-space `0–255`
-or small enums**, not 14-bit CV — see [Performance](performance.md).
+or small enums**, not 14-bit CV — see [Performance](../concepts/performance.md).
 
 ---
 
@@ -32,14 +32,14 @@ or small enums**, not 14-bit CV — see [Performance](performance.md).
 All integer, all deterministic (CR-001). The conversions that affect what you hear:
 
 - **Pitch:** `128 CV = 1 semitone`, `1536 CV = 1 octave`. A 14-bit pitch CV spans 128 semitones,
-  centre `8192`. ([Concepts §1.3](concepts.md#pitch-as-control-voltage).)
+  centre `8192`. ([Concepts §1.3](../concepts/concepts.md#pitch-as-control-voltage).)
 - **Envelope time CV → rate:** inverted (`0`=fastest, `16383`=slowest) then **x⁶** expansion, with
-  a +1 floor so it can't hang. ([Envelope §time](nodes/envelope.md#time).)
+  a +1 floor so it can't hang. ([Envelope §time](../nodes/envelope.md#time).)
 - **Filter cutoff CV → coefficient index:** **x³** perceptual curve so the sweep sounds even.
-  ([Filter §cutoff](nodes/filter.md#cutoff).)
-- **LFO rate CV → increment:** logarithmic via LUT. ([LFO](nodes/lfo.md).)
+  ([Filter §cutoff](../nodes/filter.md#cutoff).)
+- **LFO rate CV → increment:** logarithmic via LUT. ([LFO](../nodes/lfo.md).)
 - **Sustain CV → amplitude:** 14-bit `0–16383` expanded to 16-bit `0–65535` by bit replication
-  (no division). ([Envelope](nodes/envelope.md).)
+  (no division). ([Envelope](../nodes/envelope.md).)
 
 You don't compute these — you turn a knob and the engine applies the curve — but they explain why
 e.g. the bottom of the cutoff range isn't where the audible action is.
@@ -74,7 +74,7 @@ between them.
 
 Every entry in `gdvp_param_id_t`. "Domain" notes whether the value is unipolar 14-bit, bipolar
 14-bit (centre 8192), or discrete. CC/NRPN columns show the default MIDI mapping where one exists
-([full MIDI map](midi.md#map)).
+([full MIDI map](../control/midi.md#map)).
 
 ### Core voice
 | Parameter ID | Domain | MIDI | Target |
@@ -162,7 +162,7 @@ Every entry in `gdvp_param_id_t`. "Domain" notes whether the value is unipolar 1
 > canonical map or MIDI processor *names* but which are routed via generic sound-controller
 > handling rather than an explicit per-parameter binding in `gdvp_canonical_map.json`. The
 > explicit, guaranteed bindings are CC 1, 7, 10, 16–24, 71, 74–78, and NRPN 1/0, 1/1, 2/0, 2/1.
-> See [MIDI](midi.md#map).
+> See [MIDI](../control/midi.md#map).
 
 ---
 
@@ -183,4 +183,4 @@ Every entry in `gdvp_param_id_t`. "Domain" notes whether the value is unipolar 1
 
 ---
 
-[← Effects](effects.md) · [Manual index](README.md) · Next: [Patch Management →](patches.md)
+[← Effects](effects.md) · [Manual index](../README.md) · Next: [Patch Management →](patches.md)

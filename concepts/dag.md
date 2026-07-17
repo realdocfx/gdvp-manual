@@ -1,6 +1,6 @@
 # 2 · The Node Graph (DAG)
 
-[← Global Concepts](concepts.md) · [Manual index](README.md) · Next: [Performance & Expression →](performance.md)
+[← Global Concepts](concepts.md) · [Manual index](../README.md) · Next: [Performance & Expression →](performance.md)
 
 A GDVP patch is not a fixed signal path with a few switches — it is a **directed acyclic
 graph** (DAG) of DSP nodes that you wire freely. This chapter explains how that graph works,
@@ -14,10 +14,10 @@ A patch is **nodes** + **edges**.
 
 - A **node** is one DSP block: an oscillator, a filter, an envelope, a VCA, and so on. Every
   node is exactly 32 bytes internally (a hard architectural invariant) and carries its own
-  parameters and state. The full catalogue is the [Node Reference](nodes/README.md).
+  parameters and state. The full catalogue is the [Node Reference](../nodes/README.md).
 - An **edge** is a wire from one node's **output port** to another node's **input port**.
   In the `.gvp` patch file an edge is `{src, dst, src_port, dst_port}` — see
-  [Patches](patches.md#routing).
+  [Patches](../sound/patches.md#routing).
 
 ### Port conventions
 
@@ -38,7 +38,7 @@ env2(0) ──1──▶ vca(0)            ; envelope shapes amplitude (the "gat
 vca(0) ──0──▶ panner(0)          ; amp into stereo placement
 ```
 
-That is essentially the `acid_squelch` example patch ([see the example library](patches.md#library)).
+That is essentially the `acid_squelch` example patch ([see the example library](../sound/patches.md#library)).
 The node *number* (`id`) is arbitrary and need not be ordered; the **edges** define the
 topology, and the compiler sorts execution order for you.
 
@@ -50,8 +50,8 @@ The graph is **acyclic** — no node may feed back into itself through the graph
 lets the engine compute a single, stable execution order every block with bounded cost. Genuine
 feedback (delay lines, FDN reverb) is provided by **dedicated nodes** that hold their own
 internal delay memory rather than by looping an edge back; see the
-[GFX effect nodes](nodes/gfx.md) and [Effects](effects.md). If you author a `.gvp` with a cycle,
-the parser/compiler will reject it ([patch errors](patches.md#errors)).
+[GFX effect nodes](../nodes/gfx.md) and [Effects](../sound/effects.md). If you author a `.gvp` with a cycle,
+the parser/compiler will reject it ([patch errors](../sound/patches.md#errors)).
 
 ---
 
@@ -61,7 +61,7 @@ When a patch loads, the engine doesn't run your edges directly. It **compiles** 
 
 1. **Parse** the `.gvp` into an abstract topology (the AST). Source: `gdvp_gvp_parser.c`.
 2. **Topologically sort** the nodes with Kahn's algorithm so every node runs *after* the nodes
-   that feed it. Source: `gdvp_dag_compiler.c`. See [Glossary: Kahn sort](glossary.md#kahn).
+   that feed it. Source: `gdvp_dag_compiler.c`. See [Glossary: Kahn sort](../reference/glossary.md#kahn).
 3. **Auto-inject** structural helpers where needed (below).
 4. Emit an **execution plan** (`execution_order[]`) that the voice executor walks in order.
 
@@ -75,15 +75,15 @@ Because of this, two things are true that surprise newcomers:
 The compiler silently inserts helper nodes so you don't have to manage plumbing:
 
 - **Mixer** — when more than one edge fans **into** the same input port (fan-in > 1), the
-  compiler inserts a [Mixer node](nodes/mixer.md) to sum them. You hear this as "I wired three
+  compiler inserts a [Mixer node](../nodes/mixer.md) to sum them. You hear this as "I wired three
   oscillators into one filter and it just worked."
 - **Up/Down-samplers** — when a node runs oversampled (2×) but its neighbours don't, the
-  compiler inserts [polyphase up/down-samplers](nodes/oversampling.md) at the rate boundary so
+  compiler inserts [polyphase up/down-samplers](../nodes/oversampling.md) at the rate boundary so
   the conversion is band-limited rather than naive.
 
 The patch stores **two edge lists** as a result: your original *user edges* (what you drew, and
 what gets saved back) and the *cached post-compilation edges* (including injected MIX/UP/DN),
-which the [front panel](gui.md) renders so the picture matches what actually executes. Source:
+which the [front panel](../control/gui.md) renders so the picture matches what actually executes. Source:
 `gdvp_elastic_part_t` fields `user_edge_*` and `cached_edge_*` in `gdvp_voice_manager.h`.
 
 ---
@@ -97,7 +97,7 @@ state — oscillator phase, filter integrators, envelope stage — is therefore 
 
 The hard ceiling is **64 nodes per patch graph** (`GDVP_MAX_PATCH_NODES`). The compiler parses
 into a 256-node sandbox first, then sorts down into the dense staging pool; exceeding the node
-or edge budget is a load-time error ([patch errors](patches.md#errors)).
+or edge budget is a load-time error ([patch errors](../sound/patches.md#errors)).
 
 ---
 
@@ -114,8 +114,8 @@ thread is mid-way through executing. GDVP handles this with a transactional swap
 This Producer↔Consumer hand-off is the **Airlock**. You never operate it directly; it is why
 re-patching doesn't click or crash. Source: `gdvp_voice_manager.c`
 (`gdvp_vam_flush_part_voices`, the `_Atomic` swap flags), discussed in
-`gdvp/docs/THREAD_SEGREGATION.md`. See also [Glossary: Airlock](glossary.md#airlock).
+`gdvp/docs/THREAD_SEGREGATION.md`. See also [Glossary: Airlock](../reference/glossary.md#airlock).
 
 ---
 
-[← The Node Graph](dag.md) · [Manual index](README.md) · Next: [Performance & Expression →](performance.md)
+[← The Node Graph](dag.md) · [Manual index](../README.md) · Next: [Performance & Expression →](performance.md)

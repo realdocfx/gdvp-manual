@@ -1,6 +1,6 @@
 # 9 · The Front Panel
 
-[← MIDI](midi.md) · [Manual index](README.md) · Next: [Parameter Index →](parameter-index.md)
+[← MIDI](midi.md) · [Manual index](../README.md) · Next: [Parameter Index →](../reference/parameter-index.md)
 
 The GDVP client (`gdvp_client.exe`) is the operator interface: an SDL2 application rendered in a
 deliberate **CRT-phosphor** aesthetic, driven entirely by software framebuffer compositing. It is
@@ -37,10 +37,10 @@ is layered atoms → molecules → organisms (`client_ui_atoms.c`, `client_ui_mo
 ## 9.2 Reading and editing values
 
 - Controls show the live value and accept edits (mouse/keyboard via `client_input.c`), which become
-  parameter updates through the same [bridge](concepts.md#the-three-thread-model-and-why-it-shapes-the-feel)
+  parameter updates through the same [bridge](../concepts/concepts.md#the-three-thread-model-and-why-it-shapes-the-feel)
   MIDI uses — so editing on-screen and automating over MIDI are equivalent and consistent
-  ([bifurcated model](parameters.md#bifurcation)).
-- Values are the 14-bit CV / enums in [Parameters §6](parameters.md). The panels apply the same
+  ([bifurcated model](../sound/parameters.md#bifurcation)).
+- Values are the 14-bit CV / enums in [Parameters §6](../sound/parameters.md). The panels apply the same
   perceptual curves the DSP does, so a cutoff knob *feels* even across its travel.
 
 ---
@@ -49,7 +49,7 @@ is layered atoms → molecules → organisms (`client_ui_atoms.c`, `client_ui_mo
 
 An on-panel oscilloscope organism (`client_ui_org_oscilloscope.c`) visualises the live output for
 metering and waveform inspection — useful for confirming a patch is actually producing signal
-(handy given some [effect nodes are dormant](effects.md)). It taps the engine's audio output for
+(handy given some [effect nodes are dormant](../sound/effects.md)). It taps the engine's audio output for
 display.
 
 ---
@@ -57,9 +57,9 @@ display.
 ## 9.4 The patch browser, Save / Save As {#saving}
 
 - A **patch browser** (`client_patch_registry.c`, tested by `test_client_patch_browser.c`) lists
-  available `.gvp` patches ([the example library](patches.md#library)) for loading.
+  available `.gvp` patches ([the example library](../sound/patches.md#library)) for loading.
 - **Save / Save As** is handled by the save modal organism (`client_ui_org_save_modal.c`) and the
-  writer ([Patches §7.3](patches.md#loading-and-saving)). Saving serialises the Part's **user edge
+  writer ([Patches §7.3](../sound/patches.md#loading-and-saving)). Saving serialises the Part's **user edge
   list**, so what you drew is what's written — injected plumbing nodes are not persisted.
 
 ---
@@ -68,9 +68,9 @@ display.
 
 The panel includes an interactive node-graph editor (the `client_ui_dag_*.c` family: layout,
 edges, grid, solver, render, delete). It provides a gravity-based layout solver and orthogonal edge
-routing so the graph stays readable as you add nodes, with the [Airlock](dag.md#live-editing-and-the-airlock)
+routing so the graph stays readable as you add nodes, with the [Airlock](../concepts/dag.md#live-editing-and-the-airlock)
 ensuring edits swap in cleanly at a block boundary without audio glitches. Editing topology here is
-the visual equivalent of editing the `routing` section of a [`.gvp`](patches.md#routing).
+the visual equivalent of editing the `routing` section of a [`.gvp`](../sound/patches.md#routing).
 
 ---
 
@@ -84,4 +84,4 @@ deterministic, legible, and self-contained rather than dependent on a heavy GPU 
 
 ---
 
-[← MIDI](midi.md) · [Manual index](README.md) · Next: [Parameter Index →](parameter-index.md)
+[← MIDI](midi.md) · [Manual index](../README.md) · Next: [Parameter Index →](../reference/parameter-index.md)

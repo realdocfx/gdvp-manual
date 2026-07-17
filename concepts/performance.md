@@ -1,6 +1,6 @@
 # 3 · Performance & Expression
 
-[← The Node Graph](dag.md) · [Manual index](README.md) · Next: [Node Reference →](nodes/README.md)
+[← The Node Graph](dag.md) · [Manual index](../README.md) · Next: [Node Reference →](../nodes/README.md)
 
 This chapter covers how GDVP turns your *playing* into voices: the eight voice modes, glide,
 unison, chords, the arpeggiator, the strum/delay allocator, and expressive control (velocity,
@@ -29,7 +29,7 @@ Source: `gdvp_voice_mode_t` in `gdvp_voice_manager.h`. Internally the engine sep
 **allocation strategy** (poly/mono/legato/unison/duo/chord, `gdvp_voice_allocation_t`) from two
 **interceptors** (Arp and Delay) that sit *in front of* allocation — which is why, in patches,
 you'll see both a `mode` field and independent `arp_enabled` / `delay_enabled` flags
-([patch voice section](patches.md#voice)).
+([patch voice section](../sound/patches.md#voice)).
 
 Switching mode performs a clean **state-transition flush**: all active voices are hard-cut and
 mode-specific buffers (e.g. arpeggiator memory) are cleared, so you never get ghost notes
@@ -45,7 +45,7 @@ parameter:
 - **Glide time** — UI range `0–255`, where `0` = instant (no glide) and `255` = slowest.
   It maps to the oscillator's `portamento_shift` (an EMA slew factor). Because the engine slews
   the *linear pitch CV* in Q16.16, the resulting frequency contour is exponential — i.e.
-  constant-time, musically correct portamento. See [Oscillator: pitch slewing](nodes/oscillator.md#pitch).
+  constant-time, musically correct portamento. See [Oscillator: pitch slewing](../nodes/oscillator.md#pitch).
 
 Voice-param key `0` (`glide_time`) via `gdvp_param_bridge_update_voice_param`.
 
@@ -61,7 +61,7 @@ UNISON stacks several detuned copies of every note for thickness.
 
 Spread is in the same pitch-CV currency as everything else (128 CV = 1 semitone), so modest
 spread values stay within a few cents — the classic "supersaw" thickening rather than a chord.
-The `SuperSaw.gvp` example is built on this ([library](patches.md#library)).
+The `SuperSaw.gvp` example is built on this ([library](../sound/patches.md#library)).
 
 ---
 
@@ -129,7 +129,7 @@ DELAY mode (mode 6, or the `delay_enabled` interceptor) spawns several voices fr
 | **Delay drift** | `0–255` | Pitch drift added per successive voice, for human-strum detune. | 13 |
 
 Source: `gdvp_voice_manager_state_t` delay fields. This is distinct from the audio
-[delay effect node](nodes/gfx.md#delay) — DELAY mode is a *voice-allocation* effect.
+[delay effect node](../nodes/gfx.md#delay) — DELAY mode is a *voice-allocation* effect.
 
 ---
 
@@ -138,7 +138,7 @@ Source: `gdvp_voice_manager_state_t` delay fields. This is distinct from the aud
 ### Velocity
 Note-on velocity is carried into the voice and read by the envelope as `velocity_scale`,
 scaling dynamic range. With the envelope's **Expressive** flag set, the envelope also tracks
-continuous pressure (MPE). See [Envelope](nodes/envelope.md#velocity).
+continuous pressure (MPE). See [Envelope](../nodes/envelope.md#velocity).
 
 ### Pitch bend {#pitchbend}
 Pitch bend is applied **per Part, in the voice executor**, as a signed CV offset added to every
@@ -148,12 +148,12 @@ voice's note CV each block:
 - **Bend range** — `0–48` semitones, default **2** (`pitch_bend_range`).
 
 Because bend is added downstream of allocation, it tracks all sounding voices uniformly. Source:
-`gdvp_voice_manager_state_t` pitch-bend fields. MIDI pitch-bend routing: [MIDI](midi.md#pitchbend).
+`gdvp_voice_manager_state_t` pitch-bend fields. MIDI pitch-bend routing: [MIDI](../control/midi.md#pitchbend).
 
 ### MPE / per-note expression
 The parameter space includes MPE targets — **channel pressure**, **poly pressure**, and a
 dedicated **pitch-bend CV** (`GDVP_PARAM_CHANNEL_PRESSURE_CV`, `GDVP_PARAM_POLY_PRESSURE_CV`,
-`GDVP_PARAM_PITCH_BEND_CV`). See [Parameters](parameters.md#mpe). Continuous pressure reaches the
+`GDVP_PARAM_PITCH_BEND_CV`). See [Parameters](../sound/parameters.md#mpe). Continuous pressure reaches the
 envelope when its Expressive flag is enabled.
 
 ---
@@ -168,12 +168,12 @@ every node, so tempo-synced features can resolve *within* the block, sample-accu
 > ⚠️ **Status note.** The transport bus and tick mask are fully plumbed, and the arpeggiator
 > uses them. The **LFO transport-sync** path, however, is staged but not yet active in the LFO
 > kernel — `tick_mask` is currently received and cast to `(void)` there (see
-> [LFO §sync](nodes/lfo.md#sync) and [Appendix A](appendix-status.md)). Key-sync (phase reset on
+> [LFO §sync](../nodes/lfo.md#sync) and [Appendix A](../appendix/engine-status.md)). Key-sync (phase reset on
 > note) does work; tempo-sync does not yet.
 
 Under the VST3 form, transport (play state and BPM) follows the **host DAW**. Under standalone,
-it is internal. See [Hosts](hosts.md).
+it is internal. See [Hosts](../control/hosts.md).
 
 ---
 
-[← The Node Graph](dag.md) · [Manual index](README.md) · Next: [Node Reference →](nodes/README.md)
+[← The Node Graph](dag.md) · [Manual index](../README.md) · Next: [Node Reference →](../nodes/README.md)

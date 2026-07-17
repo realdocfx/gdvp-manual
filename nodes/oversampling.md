@@ -4,7 +4,7 @@
 
 A matched pair of polyphase half-band FIR converters that move signal between the base rate and
 2× oversampled rate without aliasing. **You never place these manually** — the
-[DAG compiler](../dag.md#auto-injected-nodes) inserts them automatically around any node that runs
+[DAG compiler](../concepts/dag.md#auto-injected-nodes) inserts them automatically around any node that runs
 oversampled, so the rate boundary is band-limited rather than naive. Source:
 `gdvp_dsp_oversampling.c`, payloads `gdvp_node_upsampler_t` / `gdvp_node_downsampler_t`.
 
@@ -39,7 +39,7 @@ This is also where the [filter's OSAC](filter.md) correction matters: an oversam
 different, exact coefficient LUT for the 128-sample rate rather than approximating.
 
 ## Related
-- [DAG: auto-injected nodes](../dag.md#auto-injected-nodes) · [Glossary: OSAC](../glossary.md#osac)
+- [DAG: auto-injected nodes](../concepts/dag.md#auto-injected-nodes) · [Glossary: OSAC](../reference/glossary.md#osac)
 
 ---
 

@@ -49,7 +49,7 @@ rate moves *glide* rather than jump, which is what gives the LFO its "organic" f
 - **Transport sync (mode 1):** ⚠️ **not yet active.** The LFO kernel currently receives the
   transport `tick_mask` but casts it to `(void)` (a comment marks this "Phase 2"). So selecting
   transport-sync does not yet lock the LFO to tempo on this build. See
-  [Performance: tempo](../performance.md#tempo) and [Appendix A](../appendix-status.md).
+  [Performance: tempo](../concepts/performance.md#tempo) and [Appendix A](../appendix/engine-status.md).
 
 ### Sample & Hold / Noise shapes
 Shapes 4 and 5 use the LFO's own xorshift PRNG (`prng_state`) and a `sh_latch`, giving stepped
@@ -58,7 +58,7 @@ random (S&H) and noise modulation without an external source.
 ## Related
 - Vibrato → wire to [Oscillator](oscillator.md) pitch; tremolo → wire to [VCA](vca.md);
   filter sweep → wire to [Filter](filter.md) port 1.
-- Examples: `lfo_vibrato`, `lfo_tremolo`, `lfo_pwm`, `lfo_filter_sweep` ([library](../patches.md#library)).
+- Examples: `lfo_vibrato`, `lfo_tremolo`, `lfo_pwm`, `lfo_filter_sweep` ([library](../sound/patches.md#library)).
 
 ---
 

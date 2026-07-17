@@ -1,6 +1,6 @@
 # 8 · MIDI Implementation
 
-[← Patch Management](patches.md) · [Manual index](README.md) · Next: [The Front Panel →](gui.md)
+[← Patch Management](../sound/patches.md) · [Manual index](../README.md) · Next: [The Front Panel →](gui.md)
 
 GDVP is a "Universal Host" MIDI device: 16-channel multitimbral, 14-bit-capable, with NRPN
 support and a defined CC map (Canonical MIDI Implementation Schema, **MIS v0.9.1**). This chapter
@@ -12,7 +12,7 @@ stubbed. Sources: `gdvp_midi_processor.c/.h`, `gdvp/config/gdvp_canonical_map.js
 ## 8.1 Channels map to Parts {#channels}
 
 **MIDI channel N → Part (N−1).** Channel 1 = Part 0, … channel 16 = Part 15. Each Part is an
-independent instrument with its own patch and voice mode ([Concepts §1.1](concepts.md)). There are
+independent instrument with its own patch and voice mode ([Concepts §1.1](../concepts/concepts.md)). There are
 16 of each, so the mapping is exact and fixed. The MIDI state matrix tracks all 128 CCs across all
 16 channels independently (`gdvp_midi_state_matrix_t`).
 
@@ -22,9 +22,9 @@ independent instrument with its own patch and voice mode ([Concepts §1.1](conce
 
 ## 8.2 Notes, velocity, panic
 
-- **Note-on / note-off** drive the Part's [voice mode](performance.md#voice-modes) via the VAM. The
+- **Note-on / note-off** drive the Part's [voice mode](../concepts/performance.md#voice-modes) via the VAM. The
   host-side entry points are `gdvp_system_host_note_on/off(system, part_id, note, velocity)`.
-- **Velocity** (0–127) is carried into the voice and scales the [envelope](nodes/envelope.md#velocity).
+- **Velocity** (0–127) is carried into the voice and scales the [envelope](../nodes/envelope.md#velocity).
 - **All Notes Off (CC 123)** → graceful envelope release of the channel's voices
   (`gdvp_client_all_notes_off`).
 - **All Sound Off (CC 120)** → hard panic, bypassing envelopes (`gdvp_client_panic`).
@@ -34,7 +34,7 @@ independent instrument with its own patch and voice mode ([Concepts §1.1](conce
 
 ## 8.3 High-resolution 14-bit CC pairing {#highres}
 
-GDVP natively wants **14-bit** control values ([Parameters §6.1](parameters.md#cv)). The processor
+GDVP natively wants **14-bit** control values ([Parameters §6.1](../sound/parameters.md#cv)). The processor
 handles standard MIDI 14-bit CC pairing automatically:
 
 - A **CC 0–31** message is the **MSB**: it is latched *and* routed immediately (with zero LSB) so
@@ -102,19 +102,19 @@ engine action** — the handler returns success without doing anything. Don't re
 | CC 68 Legato footswitch | ⚠️ tracked, no action |
 | CC 126 Mono Mode On | ⚠️ acknowledged, does not reconfigure the VAM |
 | CC 127 Poly Mode On | ⚠️ acknowledged, does not reconfigure the VAM |
-| CC 91 Reverb depth, CC 93 Chorus depth | routed as generic sound-controllers; the [GFX effects](effects.md) they drive are now active and wired to the Global EFX Bus |
+| CC 91 Reverb depth, CC 93 Chorus depth | routed as generic sound-controllers; the [GFX effects](../sound/effects.md) they drive are now active and wired to the Global EFX Bus |
 
-To change voice mode today, use the [front-panel control](performance.md#voice-modes) /
-`gdvp_param_bridge_update_voice_mode`, not CC 126/127. See [Appendix A](appendix-status.md).
+To change voice mode today, use the [front-panel control](../concepts/performance.md#voice-modes) /
+`gdvp_param_bridge_update_voice_mode`, not CC 126/127. See [Appendix A](../appendix/engine-status.md).
 
 ---
 
 ## 8.6 Pitch bend & aftertouch {#pitchbend}
 
 The parameter space defines MPE-style targets — `GDVP_PARAM_PITCH_BEND_CV`,
-`GDVP_PARAM_CHANNEL_PRESSURE_CV`, `GDVP_PARAM_POLY_PRESSURE_CV` ([Parameters §6.4](parameters.md#mpe)).
+`GDVP_PARAM_CHANNEL_PRESSURE_CV`, `GDVP_PARAM_POLY_PRESSURE_CV` ([Parameters §6.4](../sound/parameters.md#mpe)).
 Pitch bend is applied per-Part in the voice executor with a default ±2 semitone range (0–48
-configurable), added to all sounding voices ([Performance §3.7](performance.md#pitch-bend)). The CC
+configurable), added to all sounding voices ([Performance §3.7](../concepts/performance.md#pitch-bend)). The CC
 matrix reserves tracking slots for pitch-bend and aftertouch alongside the 128 CCs (130 tracking
 targets per Part).
 
@@ -132,8 +132,8 @@ To protect the real-time audio thread, host CCs pass through a decimation layer
 - **Load-aware routing:** routing adapts to SPSC queue capacity under heavy traffic.
 
 This is why ultra-fine CC dithering may not register, but musical moves always do — and why a busy
-MIDI stream can't glitch the audio. See [Concepts §1.4](concepts.md#the-three-thread-model-and-why-it-shapes-the-feel).
+MIDI stream can't glitch the audio. See [Concepts §1.4](../concepts/concepts.md#the-three-thread-model-and-why-it-shapes-the-feel).
 
 ---
 
-[← Patch Management](patches.md) · [Manual index](README.md) · Next: [The Front Panel →](gui.md)
+[← Patch Management](../sound/patches.md) · [Manual index](../README.md) · Next: [The Front Panel →](gui.md)

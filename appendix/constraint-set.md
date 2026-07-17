@@ -1,6 +1,6 @@
 # Appendix B · Constraint Set (CR-001…CR-004 / MISRA) & Hard Limits
 
-[← Manual index](README.md)
+[← Manual index](../README.md)
 
 GDVP is built to a strict engineering contract. These constraints are *why* the instrument behaves
 deterministically — and why it has fixed ceilings. As an operator you mostly feel them as
@@ -48,7 +48,7 @@ Because of CR-002, everything is a fixed pool. The ceilings that affect patches 
 | Chord presets | **12** | `gdvp_chord_presets[]` |
 | Mixer inputs | **6** | `gdvp_node_mixer_t` |
 
-Exceeding a `.gvp` limit is a clean load-time error ([Patches §7.2](patches.md#errors)), not a
+Exceeding a `.gvp` limit is a clean load-time error ([Patches §7.2](../sound/patches.md#errors)), not a
 crash. Running out of voices triggers voice stealing (LRU) rather than failure.
 
 ---
@@ -62,4 +62,4 @@ patches (a handful of nodes, ≤16 voices) are generous.
 
 ---
 
-[← Manual index](README.md)
+[← Manual index](../README.md)

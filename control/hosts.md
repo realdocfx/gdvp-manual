@@ -1,6 +1,6 @@
 # Standalone & Hosts
 
-[← Manual index](README.md)
+[← Manual index](../README.md)
 
 GDVP's engine is the same in every form; what differs is who owns audio I/O, transport and the UI.
 This page covers the three operator-facing forms. Sources: `standalone/`, `proxy/`, `client/`.
@@ -25,7 +25,7 @@ This page covers the three operator-facing forms. Sources: `standalone/`, `proxy
 
 So in standalone use, the **host process** does sound + MIDI and the **client process** does the
 UI; they communicate lock-free over shared memory (`proxy/include/gdvp_ipc_shm*.h`). Transport
-(tempo/PPQN clock) is **internal** — set tempo in-app; the [arpeggiator](performance.md#the-arpeggiator)
+(tempo/PPQN clock) is **internal** — set tempo in-app; the [arpeggiator](../concepts/performance.md#the-arpeggiator)
 and LFO key-sync run off this clock.
 
 ---
@@ -37,7 +37,7 @@ bridged to the C engine via `gdvp_vst3_bridge.c`). Here the **DAW is the host**:
 
 - The DAW owns **audio I/O** and the **sample rate / block size**.
 - The DAW owns **transport** — play state and BPM follow the DAW timeline, so tempo-synced features
-  align to the project (subject to the [LFO transport-sync status note](performance.md#tempo)).
+  align to the project (subject to the [LFO transport-sync status note](../concepts/performance.md#tempo)).
 - **Automation** arrives as parameter changes through the same bridge the
   [MIDI map](midi.md#map) feeds, using the canonical parameter IDs.
 
@@ -50,7 +50,7 @@ The plug-in uses the same IPC/shared-memory and tri-buffer visualisation plumbin
 
 `gdvp_client.exe` is the [front-panel](gui.md) UI and runs under both forms above. It renders the
 active Part's compiled graph, edits parameters and topology, browses and saves
-[`.gvp` patches](patches.md), and shows the oscilloscope. It holds **no audio engine of its own** —
+[`.gvp` patches](../sound/patches.md), and shows the oscilloscope. It holds **no audio engine of its own** —
 it drives the engine in the host process over IPC.
 
 ---
@@ -63,4 +63,4 @@ it drives the engine in the host process over IPC.
 
 ---
 
-[← Manual index](README.md)
+[← Manual index](../README.md)

@@ -58,7 +58,7 @@ swings the output around zero rather than unipolar.
 
 ## Related
 - Percussion: pair with a fast [Envelope](envelope.md) and [Filter](filter.md) — see
-  `noise_snare`, `metallic_hat`, `vinyl_dust` examples ([library](../patches.md#library)).
+  `noise_snare`, `metallic_hat`, `vinyl_dust` examples ([library](../sound/patches.md#library)).
 
 ---
 

@@ -1,6 +1,6 @@
 # 1 · Global Concepts & Signal Model
 
-[← Manual index](README.md) · Next: [The Node Graph →](dag.md)
+[← Manual index](../README.md) · Next: [The Node Graph →](dag.md)
 
 This chapter is the mental model everything else hangs on. Read it once and the rest of
 the manual stops being a list of features and starts being a coherent instrument.
@@ -14,7 +14,7 @@ GDVP is a **modular, polyphonic, multitimbral** synthesizer. Three words, three 
 - **Multitimbral** — there are **16 Parts**. Each Part is an independent instrument with its
   own patch, its own voice-allocation behaviour, and its own slice of the voice pool. Parts
   map 1:1 onto MIDI channels (Part 0 = channel 1, … Part 15 = channel 16). See
-  [MIDI](midi.md#channels).
+  [MIDI](../control/midi.md#channels).
 - **Polyphonic** — each Part plays many notes at once by allocating **Voices** from a shared
   global pool of **128 voices**. How notes claim voices is the Part's *voice mode*
   ([Performance & Expression](performance.md)).
@@ -44,14 +44,14 @@ filter/envelope state. This is why one voice's filter sweep never bleeds into an
 
 The exception is the **Global EFX bus** (master domain): a single monophonic chain that
 processes the *sum* of all voices. Reverb and delay belong here — you want one room, not one
-room per note. See [Effects & the Global EFX Bus](effects.md).
+room per note. See [Effects & the Global EFX Bus](../sound/effects.md).
 
 ---
 
 ## 1.2 The fixed-point world (no floating point, ever)
 
 GDVP performs **no runtime floating-point arithmetic** (constraint **CR-001**, see
-[Appendix B](appendix-constraints.md)). Everything an operator touches resolves to integers.
+[Appendix B](../appendix/constraint-set.md)). Everything an operator touches resolves to integers.
 Two formats dominate, and understanding them explains every number you'll meet:
 
 ### 14-bit Control Values (CV) — the operator's unit
@@ -62,22 +62,22 @@ Most parameters are expressed as a **14-bit CV**: an integer from **0 to 16383**
   centre/zero point**; below it is negative, above it is positive.
 
 14 bits is the resolution of high-resolution MIDI, which is why the engine speaks it natively
-(see [MIDI 14-bit pairing](midi.md#highres)). Full detail and the per-parameter table is in
-[Parameters, Ranges & Values](parameters.md).
+(see [MIDI 14-bit pairing](../control/midi.md#highres)). Full detail and the per-parameter table is in
+[Parameters, Ranges & Values](../sound/parameters.md).
 
 ### Q16.16 — the engine's internal precision
 Internally, smoothing and accumulation happen in **Q16.16**: a signed 32-bit value with 16
 integer and 16 fractional bits. You never type a Q16.16 number, but it is why pitch glides,
 gain changes and pan sweeps are *smooth* rather than stepped — the engine tracks them with 16
 bits of sub-unit precision and converges toward your target with an integer EMA (exponential
-moving average). See the [Glossary](glossary.md#q1616) and, e.g., the oscillator's
-`smoothed_pitch_cv` in [Oscillator](nodes/oscillator.md).
+moving average). See the [Glossary](../reference/glossary.md#q1616) and, e.g., the oscillator's
+`smoothed_pitch_cv` in [Oscillator](../nodes/oscillator.md).
 
 ### Audio samples
 Audio is signed 16-bit PCM (`int16_t`) flowing between nodes. The system runs at the host's
 sample rate (the standalone host asks the OS for its native rate; `44100` Hz is the reference
 configuration) in **blocks of 64 samples** (or 128 when a node is oversampled — see
-[Oversamplers](nodes/oversampling.md)).
+[Oversamplers](../nodes/oversampling.md)).
 
 ---
 
@@ -91,7 +91,7 @@ The conversion is fixed and worth memorising:
 So a 14-bit pitch CV spans 16384 / 128 = **128 semitones** of range, and `8192` sits at the
 centre. This is the same unit the [chord presets](performance.md#chords) use to express
 intervals (a major third is `512` = 4 × 128) and the same unit oscillator **detune** trims in
-(`±128` CV steps = ±1 semitone, ~1 cent per step). See [Oscillator](nodes/oscillator.md#detune).
+(`±128` CV steps = ±1 semitone, ~1 cent per step). See [Oscillator](../nodes/oscillator.md#detune).
 
 ---
 
@@ -111,12 +111,12 @@ Key consequences for you:
 - **Knob moves are smoothed and quantised in time.** The bridge applies *mathematical
   decimation* (a CC noise floor and a max-latency cap) so a flood of MIDI CCs can't swamp the
   audio thread. Tiny jitter below the noise floor is intentionally ignored. See
-  [MIDI: Smart CC immunity](midi.md#immunity).
+  [MIDI: Smart CC immunity](../control/midi.md#immunity).
 - **Two parameter domains, deliberately separate.** A patch/UI value (the *base*, e.g. base
   cutoff) and a live modulation offset (from MIDI/LFO, *bipolar around 8192*) target
   **different fields** of the same node and are merged at audio rate. This "bifurcated"
   routing is why automating cutoff over MIDI doesn't fight the knob position. See
-  [Parameters](parameters.md#bifurcation).
+  [Parameters](../sound/parameters.md#bifurcation).
 - **Transport is a bus, not a master.** A 64-bit *tick pulse mask* is computed once per block
   and passed by value to every node, so tempo-synced features (LFO sync, arp) line up
   sample-accurately. Clock runs at **96 PPQN**. See [Performance: tempo](performance.md#tempo).
@@ -135,8 +135,8 @@ there is **no dynamic allocation** after boot (**CR-002**), and the codebase tar
 allocation hiccup when you stack voices, and identical output for identical input. The cost is
 that everything is bounded — fixed pools, fixed node budgets — so a patch has hard ceilings
 (64 nodes per patch graph, 16 voices per Part, etc.). Those ceilings are listed where they bite,
-and collected in [Appendix B](appendix-constraints.md).
+and collected in [Appendix B](../appendix/constraint-set.md).
 
 ---
 
-[← Manual index](README.md) · Next: [The Node Graph →](dag.md)
+[← Manual index](../README.md) · Next: [The Node Graph →](dag.md)

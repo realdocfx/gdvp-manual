@@ -41,25 +41,25 @@ Most music software is written to ship; GDVP is written to a strict safety-criti
 Navigate the GDVP documentation using the links below. 
 
 ### Part I: Architecture & Concepts
-*   **[Global Concepts & Signal Model](concepts.md)** — Parts, voices, fixed-point math, and the lock-free SPSC three-thread model[cite: 1, 6].
-*   **[The Node Graph (DAG)](dag.md)** — Understanding patches as Directed Acyclic Graphs, ports, fan-in, and Kahn's topological compilation[cite: 1, 6].
-*   **[Performance & Expression](performance.md)** — Voice allocation modes (Mono, Legato, Poly, Unison, Chord, Arp), glide logic, and MPE pressure[cite: 1, 6].
+*   **[Global Concepts & Signal Model](concepts/concepts.md)** — Parts, voices, fixed-point math, and the lock-free SPSC three-thread model[cite: 1, 6].
+*   **[The Node Graph (DAG)](concepts/dag.md)** — Understanding patches as Directed Acyclic Graphs, ports, fan-in, and Kahn's topological compilation[cite: 1, 6].
+*   **[Performance & Expression](concepts/performance.md)** — Voice allocation modes (Mono, Legato, Poly, Unison, Chord, Arp), glide logic, and MPE pressure[cite: 1, 6].
 
 ### Part II: Building Sound
 *   **[Node Reference](nodes/README.md)** — The definitive guide to the 32-byte DSP blocks[cite: 1, 6].
     *   [Oscillator](nodes/oscillator.md) | [Filter (TPT-SVF)](nodes/filter.md) | [Envelope (ADSR)](nodes/envelope.md) | [LFO](nodes/lfo.md) | [VCA](nodes/vca.md) | [Exciter](nodes/exciter.md) | [Panner](nodes/panner.md) | [Mixer](nodes/mixer.md) | [Oversamplers](nodes/oversampling.md) | [GFX](nodes/gfx.md)[cite: 1, 6]
-*   **[Effects & the Global EFX Bus](effects.md)** — Master-domain processing, including the GFX family (Delay, Gain, Env, APF, FDN Reverb, Mod)[cite: 1, 6].
-*   **[Parameters, Ranges & Values](parameters.md)** — The 14-bit CV convention, the bifurcated parameter model (Base vs. Modulation), and the complete ID index[cite: 1, 6].
-*   **[Patch Management (`.gvp`)](patches.md)** — The JSON patch format, routing semantics, and the factory example library[cite: 1, 6].
+*   **[Effects & the Global EFX Bus](sound/effects.md)** — Master-domain processing, including the GFX family (Delay, Gain, Env, APF, FDN Reverb, Mod)[cite: 1, 6].
+*   **[Parameters, Ranges & Values](sound/parameters.md)** — The 14-bit CV convention, the bifurcated parameter model (Base vs. Modulation), and the complete ID index[cite: 1, 6].
+*   **[Patch Management (`.gvp`)](sound/patches.md)** — The JSON patch format, routing semantics, and the factory example library[cite: 1, 6].
 
 ### Part III: Control & Interface
-*   **[The Front Panel (GUI)](gui.md)** — The CRT-phosphor SDL2 interface, grid-based Wabi-Sabi layout, and the real-time zero-crossing oscilloscope[cite: 1, 6].
-*   **[MIDI Implementation](midi.md)** — Channel-to-Part mapping, the Canonical CC/NRPN map, 14-bit high-resolution pairing, and Smart CC Immunity[cite: 1, 6].
-*   **[Standalone & Hosts](hosts.md)** — Differences between running `GDVP_Standalone.exe` natively vs. DAW-hosted `GDVP_Proxy.vst3`[cite: 1, 6].
+*   **[The Front Panel (GUI)](control/gui.md)** — The CRT-phosphor SDL2 interface, grid-based Wabi-Sabi layout, and the real-time zero-crossing oscilloscope[cite: 1, 6].
+*   **[MIDI Implementation](control/midi.md)** — Channel-to-Part mapping, the Canonical CC/NRPN map, 14-bit high-resolution pairing, and Smart CC Immunity[cite: 1, 6].
+*   **[Standalone & Hosts](control/hosts.md)** — Differences between running `GDVP_Standalone.exe` natively vs. DAW-hosted `GDVP_Proxy.vst3`[cite: 1, 6].
 
 ### Part IV: Reference & Appendices
-*   **[Beta Tester & Activation Guide](beta-tester-guide.md)** — Walkthrough for machine-ID binding and unlocking the engine[cite: 1, 6].
-*   **[Parameter Index](parameter-index.md)** — Alphabetical lookup of every parameter ID[cite: 1, 6].
-*   **[Glossary](glossary.md)** — Terminology reference (Airlock, OSAC, TPT-SVF, VAM)[cite: 1, 6].
-*   **[Appendix A: Engine Status & Known Divergences](appendix-status.md)** — Ground-truth documentation of live vs. stubbed node types[cite: 1, 6].
-*   **[Appendix B: Constraint Set & Hard Limits](appendix-constraints.md)** — The exact numerical ceilings of the engine (e.g., 64 maximum nodes per patch)[cite: 1, 6].
+*   **[Beta Tester & Activation Guide](guide/beta-tester-guide.md)** — Walkthrough for machine-ID binding and unlocking the engine[cite: 1, 6].
+*   **[Parameter Index](reference/parameter-index.md)** — Alphabetical lookup of every parameter ID[cite: 1, 6].
+*   **[Glossary](reference/glossary.md)** — Terminology reference (Airlock, OSAC, TPT-SVF, VAM)[cite: 1, 6].
+*   **[Appendix A: Engine Status & Known Divergences](appendix/engine-status.md)** — Ground-truth documentation of live vs. stubbed node types[cite: 1, 6].
+*   **[Appendix B: Constraint Set & Hard Limits](appendix/constraint-set.md)** — The exact numerical ceilings of the engine (e.g., 64 maximum nodes per patch)[cite: 1, 6].

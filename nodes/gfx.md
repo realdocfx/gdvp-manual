@@ -8,9 +8,9 @@ The GFX family is GDVP's in-graph effects engine, designed around a "G×T decomp
 >
 > **Every GFX node is currently implemented and wired.** Their processor and updater functions are successfully registered in the main dispatch tables.
 >
-> Example patches referencing these nodes (like `organic_pad_reverb.gvp` using `gfx_fdn`) will now render their spatial acoustics and modulation tails as intended. See [Patches](../patches.md) and [Build Status](../appendix-status.md).
+> Example patches referencing these nodes (like `organic_pad_reverb.gvp` using `gfx_fdn`) will now render their spatial acoustics and modulation tails as intended. See [Patches](../sound/patches.md) and [Build Status](../appendix/engine-status.md).
 
-The GFX nodes are **master-domain** effects: they run on the [Global EFX bus](../effects.md) (post-mix, monophonic) rather than per-voice — adding spatial acoustics and global modulation to the summed mix.
+The GFX nodes are **master-domain** effects: they run on the [Global EFX bus](../sound/effects.md) (post-mix, monophonic) rather than per-voice — adding spatial acoustics and global modulation to the summed mix.
 
 ---
 
@@ -45,18 +45,18 @@ A Feedback Delay Network reverb powering plate, room, hall, and gated reverb mod
 * **Spatialization:** Includes stereo width decorrelation, with pre-delay and stereo-enable mapped inside the flags bitfield.
 
 ## GFX Modulator — `GDVP_NODE_GFX_MOD` {#mod}
-A parameter modulator implementing "G×T coupling". It routes an internal [LFO](lfo.md), [Envelope](envelope.md), velocity, aftertouch, or mod-wheel to **any field of up to two target nodes** (see [Parameters](../parameters.md)).
+A parameter modulator implementing "G×T coupling". It routes an internal [LFO](lfo.md), [Envelope](envelope.md), velocity, aftertouch, or mod-wheel to **any field of up to two target nodes** (see [Parameters](../sound/parameters.md)).
 * **Source:** Selectable via `src` (LFO, ENV, VEL, AT, WHEEL). The LFO features multiple shapes (sin, tri, sqr, saw, s&h, rand).
 * **Routing:** Supports a primary target and an optional secondary target.
-* **Controls:** Allows modulation depth, bias offset, rate, tempo sync, and a dedicated slew limiter (portamento) on the control signal itself. The [DAG Compiler](../dag.md) guarantees a MOD node ticks before its target.
+* **Controls:** Allows modulation depth, bias offset, rate, tempo sync, and a dedicated slew limiter (portamento) on the control signal itself. The [DAG Compiler](../concepts/dag.md) guarantees a MOD node ticks before its target.
 
 ---
 
 ## What to use today
 
-All `GDVP_NODE_GFX_*` payload structs and DSP execution loops are now actively bridged to the global DSP graph. You can safely assign them inside your `.gvp` patch files (see [Patches](../patches.md)) to utilize spatial acoustics, complex saturation, macro dynamics, and continuous parameter modulation.
+All `GDVP_NODE_GFX_*` payload structs and DSP execution loops are now actively bridged to the global DSP graph. You can safely assign them inside your `.gvp` patch files (see [Patches](../sound/patches.md)) to utilize spatial acoustics, complex saturation, macro dynamics, and continuous parameter modulation.
 
-See [Effects & the Global EFX Bus](../effects.md) for the bigger picture.
+See [Effects & the Global EFX Bus](../sound/effects.md) for the bigger picture.
 
 ---
 

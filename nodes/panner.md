@@ -32,7 +32,7 @@ artifacts.
 
 ## Related
 - Usually the last node in a voice, fed by the [VCA](vca.md).
-- The summed stereo result is what the [Global EFX bus](../effects.md) and master output receive.
+- The summed stereo result is what the [Global EFX bus](../sound/effects.md) and master output receive.
 
 ---
 
