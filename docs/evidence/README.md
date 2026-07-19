@@ -179,8 +179,7 @@ The engine and infrastructure repositories are private. The excerpts above are v
 The engine and infrastructure repositories are private, so the gate logs above are not publicly clickable. These are:
 
 - [`gdvp-manual`](https://github.com/realdocfx/gdvp-manual) — The operator's manual SSOT
-- [`gdvp-legal`](https://github.com/realdocfx/gdvp-legal) — Licence source + generated EULA
-- [`gdvp_styling`](https://github.com/realdocfx/gdvp_styling) — The visual identity this page is set in
+- [The licence](https://gdvp.net/legal) — the agreement in force, published on the site
 
 Full artefacts — gate logs, MISRA report with enumerated deviations, coverage against the declared floor, reproducible-build hash manifest, corpus renders — are released to diligence under NDA. We state that rather than implying a public verifiability we do not offer.
 
