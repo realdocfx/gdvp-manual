@@ -38,6 +38,8 @@ bridged to the C engine via `gdvp_vst3_bridge.c`). Here the **DAW is the host**:
 - The DAW owns **audio I/O** and the **sample rate / block size**.
 - The DAW owns **transport** — play state and BPM follow the DAW timeline, so tempo-synced features
   align to the project (subject to the [LFO transport-sync status note](../concepts/performance.md#tempo)).
+  The header-bar tempo readout is dimmed and tagged `DAW` while hosted: it reports the project
+  tempo but cannot set it. Set tempo in your DAW. See [Tempo & transport](../concepts/performance.md#tempo).
 - **Automation** arrives as parameter changes through the same bridge the
   [MIDI map](midi.md#map) feeds, using the canonical parameter IDs.
 

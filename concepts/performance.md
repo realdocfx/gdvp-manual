@@ -171,8 +171,18 @@ every node, so tempo-synced features can resolve *within* the block, sample-accu
 > [LFO §sync](../nodes/lfo.md#sync) and [Appendix A](../appendix/engine-status.md)). Key-sync (phase reset on
 > note) does work; tempo-sync does not yet.
 
-Under the VST3 form, transport (play state and BPM) follows the **host DAW**. Under standalone,
-it is internal. See [Hosts](../control/hosts.md).
+### Setting tempo
+
+Tempo is shown at the right of the header bar as a **BPM** readout. Drag it vertically to
+change it, within **20–300 BPM**.
+
+Under the VST3 form, transport (play state and BPM) follows the **host DAW**: the readout
+tracks the project tempo, is dimmed, and is tagged `DAW` to show where the value comes from.
+Dragging it does nothing there by design — the DAW is the master clock, and the engine refuses
+tempo writes from the UI for as long as the host is driving the transport. Change the tempo in
+your DAW instead. Under standalone, tempo is internal and the readout is yours to set.
+
+See [Hosts](../control/hosts.md).
 
 ---
 
