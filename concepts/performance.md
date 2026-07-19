@@ -16,7 +16,7 @@ how incoming notes claim voices from the pool.
 
 | # | Mode | Behaviour |
 |---|---|---|
-| 0 | **MONO** | One voice. Re-triggers itself on each new note. Enables portamento glide. |
+| 0 | **MONO** | One voice. Re-triggers itself on each new note. **No portamento** — glide is LEGATO-only (see [GLIDE](../reference/glossary.md#glide)). |
 | 1 | **LEGATO** | One voice. Overlapping notes glide **without** re-triggering envelopes or resetting oscillator phase. |
 | 2 | **POLY** | Standard polyphony, LRU voice stealing, up to 16 simultaneous voices. The default for most patches. |
 | 3 | **UNISON** | One note → *N* detuned voices stacked. Spread set by the unison spread parameter. |
