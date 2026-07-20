@@ -42,6 +42,10 @@ is layered atoms → molecules → organisms (`client_ui_atoms.c`, `client_ui_mo
   ([bifurcated model](../sound/parameters.md#bifurcation)).
 - Values are the 14-bit CV / enums in [Parameters §6](../sound/parameters.md). The panels apply the same
   perceptual curves the DSP does, so a cutoff knob *feels* even across its travel.
+- **Playing notes.** The piano roll at the bottom is playable with the mouse: click a key to sound
+  it, drag across keys to glide, release to stop. Black keys sit on top of the whites, exactly as
+  drawn. The `A–K` key row plays the same notes from the keyboard (`Z`/`X` shift octave, `F1–F12`
+  select part, `Esc` panic), and both routes drive the identical note path MIDI uses.
 
 ---
 
