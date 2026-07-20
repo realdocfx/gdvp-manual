@@ -42,6 +42,13 @@ Rate CV is mapped logarithmically through a LUT, so the knob feels even across a
 (sub-Hz drifts up to fast shimmer). `rate_inertia` slews the rate change itself — turn it up and
 rate moves *glide* rather than jump, which is what gives the LFO its "organic" feel.
 
+> ℹ️ **When you'll hear it (and when you won't).** SLEW MASS only acts while the rate is
+> *changing* — a knob move, a MIDI CC, or DAW automation. On a static rate it is silent **by
+> design**: it is a glide on rate transitions, not a modifier of the steady tone. To hear it,
+> hold a note and sweep FREQUENCY with SLEW MASS at zero, then again at maximum — the second
+> sweep arrives noticeably late (about ¾ s of lag at full mass). Key-sync note-ons snap the
+> rate, so per-note restarts are always immediate regardless of mass.
+
 ### Sync {#sync}
 - **Key sync (mode 2):** ✅ works. A HARD_RESET (note-triggered) zeros the phase and snaps the
   smoothed rate, so the LFO restarts in phase on each note — essential for consistent per-note
