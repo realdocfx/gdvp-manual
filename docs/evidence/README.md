@@ -81,10 +81,10 @@ tsan:
 **Verdict:** `PASS` · **Locus:** engine · engine-ci.yml — “Coverage report (blocking floor gate)”
 
 ```
-# enforces COVERAGE_FLOOR (59; measured 59.4%)
+# enforces COVERAGE_FLOOR (76; measured 76.9%)
 ```
 
-*59 % is the enforced floor (ratcheted from 58 on 2026-07-20). The paper states it; the gate is where it lives.*
+*76 % lines is the enforced floor (58 -> 59 -> 76 across 2026-07-20). Functions 83.0 %, branches 59.8 %. The paper states them; the gate is where the line floor lives.*
 
 ### §4 — Reproducible builds verified by hash identity across independent runners.
 
@@ -135,7 +135,7 @@ Workflow state at the reconciliation date. Run numbers are on the private engine
 | Engine CI — MISRA/cppcheck (blocking), CR-001, unit suite, sanitizers | push + nightly 00:00 UTC | `29688513786` | `a4654a0` | `PASS` |
 | Linux ThreadSanitizer (blocking gate) | push (engine paths) + nightly | `29688513786` | `a4654a0` | `PASS` |
 | Audio determinism corpus (C1 — 14 patches, all node families) | push (engine paths) + nightly | `29688513786` | `a4654a0` | `PASS` |
-| Coverage report (blocking floor gate, ≥ 59 %) | push (engine paths) + nightly | `29688513786` | `a4654a0` | `PASS` |
+| Coverage report (blocking floor gate, ≥ 76 %) | push (engine paths) + nightly | `29688513786` | `a4654a0` | `PASS` |
 | Continuous Fuzzing (libFuzzer, GVP parser) + guard-page crash replay | nightly 00:00 UTC + on demand | `29668340654` | `b190494` | `PASS` |
 | Reproducible Build (same-runner + cross-runner hash identity) | nightly 04:00 UTC | `29676582069` | `b190494` | `PASS` |
 | Engine API Docs (Doxygen build + warning ratchet) | push (engine/doc paths) | `29643700381` | `b190494` | `PASS` |
