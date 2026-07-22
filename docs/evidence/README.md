@@ -81,10 +81,10 @@ tsan:
 **Verdict:** `PASS` · **Locus:** engine · engine-ci.yml — “Coverage report (blocking floor gate)”
 
 ```
-# enforces COVERAGE_FLOOR (81; measured 81.5%)
+# enforces COVERAGE_FLOOR (82; measured 82.1%)
 ```
 
-*81 % lines is the enforced floor (58 -> 59 -> 76 -> 81 across 2026-07-20). Functions 86.1 %, branches 65.8 %. The paper states all three; the gate is where the line floor lives.*
+*82 % lines is the enforced floor (58 -> 59 -> 76 -> 81 -> 82 across 2026-07-20/21). Functions 86.1 %, branches 66.3 %. The paper states all three; the gate is where the line floor lives.*
 
 ### §4 — Reproducible builds verified by hash identity across independent runners.
 
