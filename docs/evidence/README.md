@@ -84,7 +84,7 @@ tsan:
 # enforces COVERAGE_FLOOR (82; measured 82.1%)
 ```
 
-*82 % lines is the enforced floor (58 -> 59 -> 76 -> 81 -> 82 across 2026-07-20/21). Functions 86.1 %, branches 66.3 %. The paper states all three; the gate is where the line floor lives.*
+*82 % lines is the enforced floor (58 -> 59 -> 76 -> 81 -> 82 across 2026-07-20/21). Functions 86.1 %, branches 66.6 %. The paper states all three; the gate is where the line floor lives.*
 
 ### §4 — Reproducible builds verified by hash identity across independent runners.
 
@@ -135,7 +135,7 @@ Workflow state at the reconciliation date. Run numbers are on the private engine
 | Engine CI — MISRA/cppcheck (blocking), CR-001, unit suite, sanitizers | push + nightly 00:00 UTC | `29688513786` | `a4654a0` | `PASS` |
 | Linux ThreadSanitizer (blocking gate) | push (engine paths) + nightly | `29688513786` | `a4654a0` | `PASS` |
 | Audio determinism corpus (C1 — 14 patches, all node families) | push (engine paths) + nightly | `29688513786` | `a4654a0` | `PASS` |
-| Coverage report (blocking floor gate, ≥ 81 %) | push (engine paths) + nightly | `29688513786` | `a4654a0` | `PASS` |
+| Coverage report (blocking floor gate, ≥ 82 %) | push (engine paths) + nightly | `29688513786` | `a4654a0` | `PASS` |
 | Continuous Fuzzing (libFuzzer, GVP parser) + guard-page crash replay | nightly 00:00 UTC + on demand | `29668340654` | `b190494` | `PASS` |
 | Reproducible Build (same-runner + cross-runner hash identity) | nightly 04:00 UTC | `29676582069` | `b190494` | `PASS` |
 | Engine API Docs (Doxygen build + warning ratchet) | push (engine/doc paths) | `29643700381` | `b190494` | `PASS` |
