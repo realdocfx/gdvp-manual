@@ -222,6 +222,7 @@ Instead of dropdown menus, discrete enumerations (like noise color in **exciter*
 
 #### MIDI
 Located in the global status bar at the very bottom of the screen.
+
 - **Channel Readout:** Displays the currently focused MIDI channel (e.g., MIDI CH1, MIDI CH2).
 
   - _Logic:_ MIDI Channels map exactly 1:1 to the 16 Multitimbral Parts (e.g., MIDI CH1 = Part 0, MIDI CH2 = Part 1).  
