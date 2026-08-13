@@ -307,7 +307,9 @@ Sample & hold quantized, random wevaform. A noise quantized following some music
 
 #### RATE
 ##### Contextual to [Exciter](#exciter_exc)
-A continuous knob setting the speed/density. _Logic:_ Relabels to `[ DENSITY ]` (`DENS`) automatically if _Source_ is set to `DUST`; otherwise displays `[ RATE ]`.
+A continuous knob setting the speed/density.
+
+_Logic:_ Relabels to `[ DENSITY ]` (`DENS`) automatically if _Source_ is set to `DUST`; otherwise displays `[ RATE ]`.
 In the sub-audio range : approx. 0.05Hz to 40Hz.
 ##### Contextual to [LFO](#lfo)
 A continuous knob setting the speed/density.
