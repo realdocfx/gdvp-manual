@@ -324,6 +324,9 @@ Meso depth of the [LFO](#lfo).
 ##### Contextual to [VCA](#vca)
 Not activated.
 
+#### SCOPE_CONTROLS
+Stubbed.
+
 #### S&H
 Sample and hold
 
@@ -399,6 +402,9 @@ In ms/s. Logarithmic scale from `1ms` to `10.0s`.
 
 #### TOGGLE
 Toggles execute exactly on the click edge frame within an evaluated hitbox. Exemple of toggle : BIPOLR (Exciter) or SYNC (Exciter)
+
+#### T/DIV
+##### Contextual to [Scope controls.](#scope_controls)
 
 ### U
 
