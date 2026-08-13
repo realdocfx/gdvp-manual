@@ -81,8 +81,11 @@ See [Pitch](#pitch).
 #### DLY_or_DELAY_STRUM
 ##### Contextual to [Part Global](#part_global)
 DELAY mode generates multiple voices from a single note, with staggered onset times — a strum or echo-like effect created using actual voices rather than a delay line.
+
 * TIME (Timing) : Stagger interval between successive voices.
+
 * VOICES (Density) : The number of [voices](#voice) in the strum.
+
 * DRIFT (Pitch) : Pitch drift added for each successive voice, to simulate human-style strumming detuning.
 
 #### DRIFT
