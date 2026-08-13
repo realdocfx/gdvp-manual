@@ -197,11 +197,11 @@ A visual and interactive keyboard situated just above the global status bar.
 
 - Interaction (QWERTY): The help bar explicitly states: "Piano roll (held notes) - play with a MIDI controller or the A-K key row; Z / X shift octave, Esc = panic".
 
-  * Z / X: Shifts the base octave down or up.
+    * Z / X: Shifts the base octave down or up.
 
-  * A-K Row: Triggers note-on/note-off events mapped to the piano keys.
+    * A-K Row: Triggers note-on/note-off events mapped to the piano keys.
 
-  * Esc: Triggers the Tier 3 hard flush panic command (gdvp_ui_trigger_panic) to instantly silence all voices and reset envelopes.  
+    * Esc: Triggers the Tier 3 hard flush panic command (gdvp_ui_trigger_panic) to instantly silence all voices and reset envelopes.  
 
 #### KNOBS 
 Knobs are rendered as 300-degree arcs (from 7 o'clock to 5 o'clock) with a 60-degree dead zone at the bottom. To use a knob, click, hold and drag up and and down. 
