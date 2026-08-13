@@ -143,9 +143,12 @@ Node. The exciter taps a shared noise engine and shapes it.
 The filter's user interface completely does away with traditional control buttons in favor of an interactive canvas that displays the amplitude response (an interactive filter curve visualizer) and plots a polyline in real time.
 - **Character string** : A 4-way radio button strip across the top.
     - _Values:_ [`LP`](#lp) (Low-pass), [`BP`](#bp) (Band-pass), [`HP`](#hp) (High-pass), [`NCH`](#nch) (Notch).
+
 - **Cutoff / Resonance Handle**: **Drag and hold the little box on the line.** Dragging horizontally (X-axis) adjusts Cutoff. Dragging vertically (Y-axis, inverted) adjusts Resonance.
+
 - [**Slope Badge**](#slope): A click-cycle handle box in the top-right corner of the canvas to select the filter slope. 
     - _Logic:_ Clicking cycles through steepness cascades: **`6`, `12`, `18`, `24` dB/octave**
+
 - **Bottom line** : A text row at the bottom displays integer-calculated estimates (e.g., "CUT 1.2kHz", "RES 45%", "24 dB/oct"). 
     - **"CUT 1.2kHz"** sets the specific frequency where the filter begins to do its job. 
     - **"RES 45%"** is the resonance value. 
