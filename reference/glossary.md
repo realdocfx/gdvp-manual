@@ -222,12 +222,16 @@ Instead of dropdown menus, discrete enumerations (like noise color in **exciter*
 
 #### MIXER_MIX
 Graph node. Usually auto-injected by the [DAG](#dag) compiler when edges converge, rather than placed manually.
-###### - OUTPUT / MAIN : Master gain
-###### - MUTE / STATE : Silence the mix output
-###### - [IN 1] : Input gain
-###### - [CH 1] : Channel of the signal 
 
-- **Auto-injection.** When you wire two oscillators into one filter input, the compiler places a mix er in front of the filter and routes the three sources through it. The patch's _post-compilation_ edge list (what the front panel draws) will show the injected mixer even though you didn't add it. You can add 6 inputs maximum. 
+- OUTPUT / MAIN : Master gain
+
+- MUTE / STATE : Silence the mix output
+
+- [IN 1] : Input gain
+
+- [CH 1] : Channel of the signal 
+
+**Auto-injection :** When you wire two oscillators into one filter input, the compiler places a mix er in front of the filter and routes the three sources through it. The patch's _post-compilation_ edge list (what the front panel draws) will show the injected mixer even though you didn't add it. You can add 6 inputs maximum. 
 
 #### MODULATION 
 ##### Contextual to [Oscillator](#oscillator_osc)
