@@ -403,6 +403,10 @@ In ms/s. Logarithmic scale from `1ms` to `10.0s`.
 #### TOGGLE
 Toggles execute exactly on the click edge frame within an evaluated hitbox. Exemple of toggle : BIPOLR (Exciter) or SYNC (Exciter)
 
+#### TRIG
+##### Contextual to [Scope controls.](#scope_controls)
+Stubbed.
+
 #### T/DIV
 ##### Contextual to [Scope controls.](#scope_controls)
 Stubbed.
