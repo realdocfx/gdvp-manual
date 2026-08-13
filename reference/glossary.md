@@ -201,7 +201,7 @@ A visual and interactive keyboard situated just above the global status bar.
 
     * A-K Row: Triggers note-on/note-off events mapped to the piano keys.
 
-    * Esc: Triggers the Tier 3 hard flush panic command (gdvp_ui_trigger_panic) to instantly silence all voices and reset envelopes.  
+    * Esc: Instantly silence all voices and reset envelopes.  
 
 #### KNOBS 
 Knobs are rendered as 300-degree arcs (from 7 o'clock to 5 o'clock) with a 60-degree dead zone at the bottom. To use a knob, click, hold and drag up and and down. 
@@ -232,6 +232,7 @@ Low-pass. Allows frequencies **below** the cutoff point to pass through untouche
 #### MAIN
 ##### Contextual to [Mixer](#mixer_mix)
 Output gain. 
+
 #### MAPPED ROTARIES 
 Instead of dropdown menus, discrete enumerations (like noise color in **exciter** node) are selected via "mapped encoder knobs", where turning the knob snaps between string-labelled text values.
 
@@ -264,6 +265,21 @@ Knob [FM DEPTH](#fm_depth). **FM Depth** dictates the intensity of the frequency
 #### MONO
 ##### Contextual to [Part Global](#part_global)
 Monophonic voice mode. GLIDE (Portamento) knob doesn't affect the signal.
+
+#### MULTI
+##### Multitimbral Parts & Patch Browser
+The MULTI panel, located on the right side of the interface, manages the **16 independent multitimbral parts** of the GDVP. Each part functions as an independent instrument with its own patch, voice-allocation behavior, and slice of the global voice pool, mapping exactly 1:1 to the 16 MIDI channels (Part 0 = MIDI CH1, Part 15 = MIDI CH16).
+
+-  Part Rows (**P01 to P16**): Represents the 16 active parts. 
+_Logic_: Clicking a row selects that part, actively switching the central UI context (PART GRAPH and PART GLOBAL panels) to display and edit that specific part's compiled DAG and engine state.
+
+- Patch Browser (**v** icon): A scrollable list overlay used to load patches. _Logic_: Clicking a part's dropdown reveals the patch registry. It includes a pagination indicator at the bottom (e.g., 1/50) to manage the bundled example library without overflowing the screen.
+
+- **S/SA** : for **Save** and **Save as**. 
+
+    - The "S" button will automatically overwrite the selected patch to create a new version that includes the changes made to the previous one. There is no way to undo this action once it has been performed. To restore the factory patch, visit gdvp.net (more details to come). 
+
+    - The "Save As" button lets you create a new patch that will be added to the existing library. Once you click the button, a modal opens. Use the top bar in this modal to name the new patch. The cursor automatically moves to the end. To rename the file, delete the previous name starting from the end. Click "Save As" to confirm or "Esc" to cancel. 
 
 #### MUTE
 ##### Contextual to [VCA](#vca)
