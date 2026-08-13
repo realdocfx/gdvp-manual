@@ -184,7 +184,7 @@ Have no effect on the MONO, DUO and CHRD voices. Effective with LGT (Legato).
 High-pass. Allows frequencies **above** the cutoff point to pass through, while aggressively cutting the frequencies **below** it.
 
 #### HOVER HELP BAR 
-The UI features a persistent one-line hint strip under the piano roll. Hovering over any control sets a contextual string (e.g., "Hover a control for help.").
+A persistent one-line hint strip under the piano roll. Hovering over any control sets a contextual string (e.g., "Hover a control for help.").
 
 ### K
 
