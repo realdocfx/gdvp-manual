@@ -275,8 +275,10 @@ Graph node. Panner. Interpolates from `L100` to `C` (center deadzone) to `R100`.
 
 #### PART_GLOBAL 
 Voice allocating engine. This panel manages how note data is distributed to voices.
-* **How to access this panel ?**  Click on the "Voice P1" button at the top right corner of the graph panel or click anywhere on the dark background around the graph. 
-* **Engine Modes :** [MONO](#mono), [LGT (Legato)](#lgt_legato), [POLY](#poly), [UNI (Unison)](#uni_unison), [DUO](#duo), [CHRD (Chord)](#chrd_chord), [DLY (Delay strum)](#dly_or_delay_strum) and [ARP (Arpeggiator)](#arpeggiator_arp)
+
+- **How to access this panel ?**  Click on the "Voice P1" button at the top right corner of the graph panel or click anywhere on the dark background around the graph. 
+
+- **Engine Modes :** [MONO](#mono), [LGT (Legato)](#lgt_legato), [POLY](#poly), [UNI (Unison)](#uni_unison), [DUO](#duo), [CHRD (Chord)](#chrd_chord), [DLY (Delay strum)](#dly_or_delay_strum) and [ARP (Arpeggiator)](#arpeggiator_arp)
 
 
 #### PITCH
