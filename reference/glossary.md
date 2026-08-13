@@ -226,6 +226,7 @@ Located in the global status bar at the very bottom of the screen.
 - **Channel Readout:** Displays the currently focused MIDI channel (e.g., MIDI CH1, MIDI CH2).
 
   - _Logic:_ MIDI Channels map exactly 1:1 to the 16 Multitimbral Parts (e.g., MIDI CH1 = Part 0, MIDI CH2 = Part 1).  
+
 - **Activity Indicator:** A dedicated MIDI text block in the bottom right corner acts as an activity LED, providing visual confirmation of incoming hardware MIDI messages.
 
 #### MIXER_MIX
