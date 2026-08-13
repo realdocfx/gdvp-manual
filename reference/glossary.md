@@ -188,7 +188,7 @@ The UI features a persistent one-line hint strip under the piano roll. Hovering 
 
 ### K
 
-#### KEYBOARD_(PIANO ROLL)
+#### KEYBOARD_PIANO ROLL
 A visual and interactive keyboard situated just above the global status bar.
 
 - [ OCT ] Label: Displays the current base octave (e.g., OCT 4).
