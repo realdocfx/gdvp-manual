@@ -424,9 +424,13 @@ In synthesizer terminology, a **voice** is the complete, independent hardware or
 #### WAVEFORM
 ##### Contextual to [Oscillator](#oscillator_osc)
 Six waveforms : sine (SIN), square (SQR), triangle (TRI), sawtooth (SAW), pulse (PLS) and noise (NOS). 
+
 - **Pulse** needs the timbre value to be above 0 to work. A pulse wave is essentially a square wave where the symetrical shape has been pushed off-center (the "on" and "off" times are unequal). As the pulse becomes narrower, the sound shifts from a hollow tone to a very thin, nasal, and pinched character.
+
 - A **noise** waveform is a completely aperiodic, chaotic signal. Instead of generating a single pitched musical note, noise simultaneously blasts thousands of random frequencies. It sounds like a rushing waterfall, analog television static, or hissing wind. 
+
      - **This particular noise waveform is chromatic. This means that sound is not just random noise. It is random noise generated around a pitch.** 
+
 ##### Contextual to [LFO](#lfo)
 Six waveforms : sine (SIN), square (SQR), triangle (TRI), sawtooth (SAW), sample & hold (S&H) and noise (NOS). 
 
