@@ -405,6 +405,7 @@ Toggles execute exactly on the click edge frame within an evaluated hitbox. Exem
 
 #### T/DIV
 ##### Contextual to [Scope controls.](#scope_controls)
+Stubbed.
 
 ### U
 
