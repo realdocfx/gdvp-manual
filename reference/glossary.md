@@ -329,7 +329,9 @@ Sample and hold
 
 #### SHAPE_SHPE 
 ##### Contextual to [Exciter](#exciter_exc)
-A continuous knob modifying the source. _Logic:_ Relabels to `[ AMP ]` (for DUST), `[ STEPS ]` (for QUANT), `[ SLEW ]` (for DRIFT), or `[ SHAPE ]` (default).
+A continuous knob modifying the source.
+
+_Logic:_ Relabels to `[ AMP ]` (for DUST), `[ STEPS ]` (for QUANT), `[ SLEW ]` (for DRIFT), or `[ SHAPE ]` (default).
 
 #### SLEW
 ##### Contextual to [Exciter](#exciter_exc)
