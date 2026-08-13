@@ -362,6 +362,7 @@ A mapped rotary knob selecting the randomness family. _Values:_ `AUDIO`, `DUST`,
 #### SPREAD - SPRD
 ##### Contextual to [Exciter](#exciter_exc)
 At zero spread, identical noise is sent to both speakers (pure mono). As Spread increases, the left and right channels generate mathematically independent noise streams.
+
 - **Sonic Effect:** Creates a massive, enveloping "wash" of sound. It is ideal for widening cymbal and hi-hat synthesis or generating immersive, airy wind textures.
 
 #### STATE
