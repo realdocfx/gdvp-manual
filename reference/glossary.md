@@ -141,6 +141,7 @@ Node. The exciter taps a shared noise engine and shapes it.
 
 #### FILTER_FLT
 The filter's user interface completely does away with traditional control buttons in favor of an interactive canvas that displays the amplitude response (an interactive filter curve visualizer) and plots a polyline in real time.
+
 - **Character string** : A 4-way radio button strip across the top.
     - _Values:_ [`LP`](#lp) (Low-pass), [`BP`](#bp) (Band-pass), [`HP`](#hp) (High-pass), [`NCH`](#nch) (Notch).
 
