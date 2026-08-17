@@ -8,6 +8,9 @@ Amplificator. See [Shape](#shape_shpe).
 ##### Contextual to [VCA](#vca)
 Base output gain. 
 
+#### ARENA
+Stubbed.
+
 #### ARPEGGIATOR_ARP
 ##### Contextual to [Part Global](#part_global)
 - This voice mode takes the notes of a held chord and automatically triggers the voice to play them one by one in a rhythmic sequence. 
@@ -438,6 +441,9 @@ Stubbed.
 
 #### TACTILE DRAG 
 See [**Knobs**](#knobs).
+
+#### TELEM
+Stubbed.
 
 #### TEXT ENTRY 
 Uses a modal input capturing text input, featuring a blinking cursor. It strictly filters out non-filesystem-safe characters (e.g., `/`, `\`, `:`, `*`, `?`, `<`, `>`, `|`).
