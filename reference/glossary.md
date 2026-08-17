@@ -177,6 +177,10 @@ Spans from `-inf` to `-60.0dB` up to `+6.0dB`.
 ##### Contextual to [Part Global](#part_global)
 Have no effect on the MONO, DUO and CHRD voices. Effective with LGT (Legato). 
 
+#### GLOBAL
+Stubbed.
+
+
 ### H
 
 #### HP
@@ -421,6 +425,9 @@ See [Shape](#shape_shpe).
 #### SYNC
 ##### Contextual to [Exciter](#exciter_exc)
 See [Clock](#clock).
+
+#### SYSTEM 
+Stubbed.
 
 ### T
 
