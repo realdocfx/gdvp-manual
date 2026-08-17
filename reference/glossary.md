@@ -313,6 +313,9 @@ Notch. The exact opposite of a band pass filter. It drastically cuts a specific,
 
 ### O
 
+#### OK
+Global health gate. Displays **OK** during normal operation. If a Terminal Panic occurs, this flag changes to **False**, halting audio and triggering a mandatory full-screen "ENGINE FAULT" overlay.
+
 #### OSCILLATOR_OSC
 Graph node. The primary tone generator with six [waveforms](#waveform), linear FM, pulse-width control, per-read detune, and intrinsic pitch glide.
 
