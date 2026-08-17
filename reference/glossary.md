@@ -94,7 +94,7 @@ Type of [Source](#source_src). This operates strictly in the sub-audio domain, p
 
 #### DRIVE
 ##### Contextual to [VCA](#vca)
-Not activated. 
+Stubbed. 
 
 #### DUO
 ##### Contextual to [Part Global](#part_global)
