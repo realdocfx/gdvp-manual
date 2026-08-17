@@ -488,6 +488,10 @@ Graph node. The voltage-controlled amplifier: the level/gate stage of a voice.
 #### VOICE
 In synthesizer terminology, a **voice** is the complete, independent hardware or software signal path required to generate and shape a single musical note at a given time. The GDVP is set at 128 voices during compilation (which means that the user cannot set the maximum number of voices themselves).
 
+#### VOICES
+##### Contextual to main screen's bottom line
+A real-time polyphony meter displaying the number of currently active and sounding voices. The engine draws from a hard ceiling of 128 voices. 
+
 ### W
 
 #### WAVEFORM
