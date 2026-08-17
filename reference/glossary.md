@@ -255,6 +255,9 @@ Located in the global status bar at the very bottom of the screen.
 
 - **Activity Indicator:** A dedicated MIDI text block in the bottom right corner acts as an activity LED, providing visual confirmation of incoming hardware MIDI messages.
 
+#### MIDI_CH1
+Displays the MIDI channel currently focused by the UI. Because MIDI channels map exactly 1:1 to the engine's 16 Multitimbral Parts, this confirms which part's topology is currently receiving targeted input.
+
 #### MIX
 ##### Contextual to header. 
 
