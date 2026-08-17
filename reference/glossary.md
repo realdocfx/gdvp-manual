@@ -9,6 +9,7 @@ Amplificator. See [Shape](#shape_shpe).
 Base output gain. 
 
 #### ARENA
+##### Contextual to header. 
 Stubbed.
 
 #### ARPEGGIATOR_ARP
