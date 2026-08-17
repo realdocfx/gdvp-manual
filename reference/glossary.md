@@ -249,6 +249,11 @@ Located in the global status bar at the very bottom of the screen.
 
 - **Activity Indicator:** A dedicated MIDI text block in the bottom right corner acts as an activity LED, providing visual confirmation of incoming hardware MIDI messages.
 
+#### MIX
+##### Contextual to header. 
+
+Stubbed.
+
 #### MIXER_MIX
 Graph node. Usually auto-injected by the [DAG](#dag) compiler when edges converge, rather than placed manually.
 
