@@ -69,6 +69,9 @@ Toggle button (`SYNC`) enabling sample-accurate tempo latching.
 ##### Contextual to [Exciter](#exciter_exc) 
 A mapped rotary knob selecting the spectral tilt.  _Values:_ `WHT`, `PNK`, `RED`, `BLU`, `VIO`. See (https://en.wikipedia.org/wiki/Colors_of_noise) for details.
 
+#### CPU%
+Indicates the computational load of the DSP (Digital Signal Processor) audio thread. The GDVP ensures under 10% CPU load at full 128-voice polyphony. 
+
 ### D
 
 #### DAG
