@@ -252,13 +252,7 @@ Output gain.
 Instead of dropdown menus, discrete enumerations (like noise color in **exciter** node) are selected via "mapped encoder knobs", where turning the knob snaps between string-labelled text values.
 
 #### MIDI
-Located in the global status bar at the very bottom of the screen.
-
-- **Channel Readout:** Displays the currently focused MIDI channel (e.g., MIDI CH1, MIDI CH2).
-
-  _Logic:_ MIDI Channels map exactly 1:1 to the 16 Multitimbral Parts (e.g., MIDI CH1 = Part 0, MIDI CH2 = Part 1).  
-
-- **Activity Indicator:** A dedicated MIDI text block in the bottom right corner acts as an activity LED, providing visual confirmation of incoming hardware MIDI messages.
+**Activity Indicator:** A dedicated MIDI text block in the bottom right corner acts as an activity LED, providing visual confirmation of incoming hardware MIDI messages. It indicates whether a MIDI input has been detected and is connected (it will display "not connected" in red if nothing is detected).
 
 #### MIDI_CH1
 Displays the MIDI channel currently focused by the UI. Because MIDI channels map exactly 1:1 to the engine's 16 Multitimbral Parts, this confirms which part's topology is currently receiving targeted input.
