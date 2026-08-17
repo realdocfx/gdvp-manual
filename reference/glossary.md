@@ -362,7 +362,7 @@ Meso depth of the [LFO](#lfo).
 
 #### SATURATE
 ##### Contextual to [VCA](#vca)
-Not activated.
+Stubbed.
 
 #### SCOPE_CONTROLS
 Stubbed.
