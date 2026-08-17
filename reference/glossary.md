@@ -12,6 +12,10 @@ Base output gain.
 ##### Contextual to header. 
 Stubbed.
 
+#### ARENA 900KB
+##### Contextual to bottom line. 
+Allocated RAM. 
+
 #### ARPEGGIATOR_ARP
 ##### Contextual to [Part Global](#part_global)
 - This voice mode takes the notes of a held chord and automatically triggers the voice to play them one by one in a rhythmic sequence. 
