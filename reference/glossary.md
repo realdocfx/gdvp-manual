@@ -317,7 +317,9 @@ Notch. The exact opposite of a band pass filter. It drastically cuts a specific,
 ### O
 
 #### OK
-Engine health gate. Displays **OK** during normal operation. If a Terminal Panic occurs, this flag changes to **False**, halting audio and triggering a mandatory full-screen "ENGINE FAULT" overlay.
+*Naive implementation*. 
+
+*Futur* : Engine health gate. Displays **OK** during normal operation. If a Terminal Panic occurs, this flag changes to **False**, halting audio and triggering a mandatory full-screen "ENGINE FAULT" overlay. 
 
 #### OSCILLATOR_OSC
 Graph node. The primary tone generator with six [waveforms](#waveform), linear FM, pulse-width control, per-read detune, and intrinsic pitch glide.
@@ -519,3 +521,6 @@ Six waveforms : sine (SIN), square (SQR), triangle (TRI), sawtooth (SAW), sample
 #### WIDTH
 ##### Contextual to [Oscillator](#oscillator_osc)
 See [Timbre](#timbre).
+
+#### 44100 Hz
+Displays the active operating sample rate of the audio engine. 44100 Hz (standard CD quality) is the engine's default reference configuration.
