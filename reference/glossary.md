@@ -397,6 +397,15 @@ Parameters :
 
 #### ROUTE
 The ROUTE panel is a dedicated sub-tab (adjacent to PARAMS) that appears when a specific node is selected. It allows the user to change the source or destination of the signal at the selected node. It is also possible to delete a node or change the connection type.
+
+List of actions :
+
+  - **[ + ]** (Add source/destination): Opens a picker to establish a new connection to a existing source or destination edge.
+  - **[ X ]** (Remove connection): Severs the specific connection.
+  - **[ * ]** (Add source/destination): Opens a picker to establish a new incoming source or outgoing destination edge by adding a new node.
+  - **[ < ] / [ > ]**: Buttons for navigating from node to node in the graph. 
+  - **[ REMOVE NODE ]**: Deletes the node.
+  - **[ S ] / [ M ]** (Signal/Mod Toggle): Assigns or indicates whether the port connection operates on the Audio fabric (S) or the CV/Modulation fabric (M). 
   
 #### RYTHM
 Meso depth of the [LFO](#lfo). 
