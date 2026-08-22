@@ -437,6 +437,10 @@ Every individual pole within the cascade attenuates the frequency spectrum by a 
     
 - **4-Pole (24 dB/oct):** Provides a highly aggressive slope, standard for deep bass and focused lead synthesis.
 
+#### SOURCE
+##### Contextual to [Route](#route)
+A list of all nodes currently routing signals into the selected node.
+
 #### SOURCE_SRC 
 ##### Contextual to [Exciter](#exciter_exc)
 A mapped rotary knob selecting the randomness family. _Values:_ `AUDIO`, `DUST`, `S&H`, `QUANT`, `DRIFT`.
