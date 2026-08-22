@@ -85,6 +85,10 @@ Direct Acyclic Graph. This is the graph in the middle of the main page, where no
 #### DENSITY_DENS 
 See [Rate](#rate).
 
+#### DESTINATION
+##### Contextual to [Route](#route)
+A list of all nodes the selected node is routing signals out to.
+
 #### DETUNE
 ##### Contextual to [Oscillator](#oscillator_osc)
 See [Pitch](#pitch).
