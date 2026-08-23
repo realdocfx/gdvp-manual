@@ -88,7 +88,7 @@ See [Rate](#rate).
 
 #### DESTINATION
 ##### Contextual to [Route](#route)
-A list of all nodes the selected node is routing signals out to.
+List of all nodes to which the selected node routes signals
 
 #### DETUNE
 ##### Contextual to [Oscillator](#oscillator_osc)
