@@ -393,7 +393,7 @@ Parameters :
 
   - **Size** : Sets the physical dimensions of the virtual space. *Values : 0 to 255 (Room to Hall to Plate)*
 
-  - **Decay** : Controls how long it takes for the reflections to fade away into silence. *Values : 0 to 100 % (100% approx. 15sec)*  
+  - **Decay** : Controls how long it takes for the reflections to fade away into silence. *Values : 0 to 100 % (100% means approx. 15sec)*  
 
   - **Damp** : Damping / High-cut. Determines how quickly high frequencies are absorbed by the virtual walls. *Values : 0 to 100 %*
 
