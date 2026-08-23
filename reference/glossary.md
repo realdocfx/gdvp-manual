@@ -387,7 +387,7 @@ Renders in centi-Hz, spanning `0.05Hz` to `40.00Hz`.
 #### REV_REVERB
 Graph node. Place after a VCA. 
 
-  - *Logic:* In a graph, click on a *VCA*; in the node panel, click *Route*, then *Add new destination* [*], then *New rev*. Click *Params* to return to the settings. 
+  - *Logic:* In a graph, click on a *VCA*; in the node panel, click *Route*, then *Add new destination* [ * ], then *New rev*. Click *Params* to return to the settings. 
 
 Parameters :
 
