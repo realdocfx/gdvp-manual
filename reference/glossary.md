@@ -391,7 +391,7 @@ Graph node. Place after a VCA.
 
 Parameters :
 
-  - **Size** : Sets the physical dimensions of the virtual space. *Values : 0 to 255* (Room to Hall to Plate)
+  - **Size** : Sets the physical dimensions of the virtual space. *Values : 0 to 255 (Room to Hall to Plate)*
 
   - **Decay** : Controls how long it takes for the reflections to fade away into silence. *Values : 0 to 100 % (100% approx. 15sec)*  
 
