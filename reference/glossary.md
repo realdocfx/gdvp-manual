@@ -38,6 +38,7 @@ Continuous colored noise — beds, wind, breath, filter excitation. See [Shape](
 #### BEHAVIOR
 ##### Contextual to [Panner](#pan)
 Select between two modes : linear (straight amplitude crossfade) or constant-power (a constante-power (-3 dB center) curve).
+
 * **NO PAN LAW** : Straight Amplitude Crossfade (Linear Panning)
 - **How it Works:** The volume changes in a strict, straight mathematical line. If the panner is dead center, both the left and right speakers output exactly 50% of the signal's amplitude.
     
