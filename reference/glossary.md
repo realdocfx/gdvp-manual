@@ -1,4 +1,4 @@
-### A
+## A
 
 #### AMP
 ##### Contextual to [Exciter](#exciter_exc) 
@@ -33,7 +33,7 @@ Allocated RAM.
 ##### Contextual to [Exciter](#exciter_exc)
 Continuous colored noise — beds, wind, breath, filter excitation. See [Shape](#shape_shpe).
 
-### B
+## B
 
 #### BEHAVIOR
 ##### Contextual to [Panner](#pan)
@@ -57,7 +57,7 @@ See [Polarity_bipolr](#polarity_bipolr).
 ##### Contextual to [Filter](#filter_flt)
 Band-pass. Allows only a specific "band" (or slice) of frequencies to pass through, simultaneously cutting both the extreme lows and the extreme highs outside of that slice.
 
-### C
+## C
 
 #### CHRD_CHORD
 ##### Contextual to [Part Global](#part_global)
@@ -78,7 +78,7 @@ A mapped rotary knob selecting the spectral tilt.  _Values:_ `WHT`, `PNK`, `RED`
 #### CPU_N%
 Indicates the computational load of the DSP (Digital Signal Processor) audio thread. The GDVP ensures under 10% CPU load at full 128-voice polyphony. 
 
-### D
+## D
 
 #### DAG
 Direct Acyclic Graph. This is the graph in the middle of the main page, where nodes interact. 
@@ -120,7 +120,7 @@ Duophonic mode. Two notes at a time. GLIDE (Portamento) doesn't affect the signa
 ##### Contextual to [Exciter](#exciter_exc)
 Sparse, randomly timed discrete impulses or clicks. Rather than a wash of noise, it sounds like a Geiger counter, static electricity, or the crackle of a worn vinyl record. See [Shape](#shape_shpe).
 
-### E
+## E
 
 #### ENGINE MODE
 ##### Contextual to [Part Global](#part_global)
@@ -156,7 +156,7 @@ Macro depth of the [LFO](#lfo). Depth of the drift layer (filtered chaos).
 #### EXCITER_EXC
 Node. The exciter taps a shared noise engine and shapes it.
 
-### F
+## F
 
 #### FILTER_FLT
 The filter's user interface completely does away with traditional control buttons in favor of an interactive canvas that displays the amplitude response (an interactive filter curve visualizer) and plots a polyline in real time.
@@ -184,7 +184,7 @@ Cutoff frequency. Logarithmic scale from `20Hz` to `20.0k`.
 See [Rate](#rate).
 
 
-### G
+## G
 
 #### GAIN_dB  
 Spans from `-inf` to `-60.0dB` up to `+6.0dB`.
@@ -197,7 +197,7 @@ Have no effect on the MONO, DUO and CHRD voices. Effective with LGT (Legato).
 Stubbed.
 
 
-### H
+## H
 
 #### HP
 ##### Contextual to [Filter](#filter_flt)
@@ -206,7 +206,7 @@ High-pass. Allows frequencies **above** the cutoff point to pass through, while 
 #### HOVER HELP BAR 
 A persistent one-line hint strip under the piano roll. Hovering over any control sets a contextual string (e.g., "Hover a control for help.").
 
-### K
+## K
 
 #### KEYBOARD_PIANO ROLL
 A visual and interactive keyboard situated just above the global status bar.
@@ -226,7 +226,7 @@ A visual and interactive keyboard situated just above the global status bar.
 #### KNOBS 
 Knobs are rendered as 300-degree arcs (from 7 o'clock to 5 o'clock) with a 60-degree dead zone at the bottom. To use a knob, click, hold and drag up and and down. 
 
-### L
+## L
 
 #### LEVEL_LVL 
 ##### Contextual to [Exciter](#exciter_exc) 
@@ -247,7 +247,7 @@ Monophonic voice mode. GLIDE TIME (Portamento) affects the legato between notes.
 ##### Contextual to [Filter](#filter_flt)
 Low-pass. Allows frequencies **below** the cutoff point to pass through untouched, while rolling off or cutting frequencies **above** that point.
 
-### M
+## M
 
 #### MAIN
 ##### Contextual to [Mixer](#mixer_mix)
@@ -311,7 +311,7 @@ See [State](#state).
 ##### Contextual to [Mixer](#mixer_mix)
 Silence the mix output. 
 
-### N
+## N
 
 #### NCH
 ##### Contextual to [Filter](#filter_flt)
@@ -320,7 +320,7 @@ Notch. The exact opposite of a band pass filter. It drastically cuts a specific,
 #### NOTE 
 `C0` through `B`, where 1 internal step = 0.5 semitones.
 
-### O
+## O
 
 #### OK
 *Naive implementation*. 
@@ -337,7 +337,7 @@ Output amplitude level spanning `-inf` to `+6.0dB`.
 ##### Contextual to [Mixer](#mixer_mix)
 Output gain.
 
-### P
+## P
 
 #### PAN 
 Graph node. Panner. Interpolates from `L100` to `C` (center deadzone) to `R100`. A panner (short for panoramic potentiometer) is a control that dictates the spatial positioning of a sound within the stereo field.
@@ -367,12 +367,12 @@ Polyphonic voice mode. Play up to 128 notes simultaneously. The default for most
 ##### Contextual to [Panner](#pan)
 Define stereo placement from L (left) to R (right) with a center (c).
 
-### Q
+## Q
 
 #### QUANT
 Sample & hold quantized, random wevaform. A noise quantized following some musical grid. See [Shape](#shape_shpe).
 
-### R
+## R
 
 #### RATE
 ##### Contextual to [Exciter](#exciter_exc)
@@ -411,7 +411,7 @@ List of actions :
 #### RYTHM
 Meso depth of the [LFO](#lfo). 
 
-### S
+## S
 
 #### SATURATE
 ##### Contextual to [VCA](#vca)
@@ -482,7 +482,7 @@ See [Clock](#clock).
 #### SYSTEM 
 Stubbed.
 
-### T
+## T
 
 #### TACTILE DRAG 
 See [**Knobs**](#knobs).
@@ -514,7 +514,7 @@ Stubbed.
 ##### Contextual to [Scope controls.](#scope_controls)
 Stubbed.
 
-### U
+## U
 
 #### UNI_UNISON
 ##### Contextual to [Part Global](#part_global)
@@ -525,9 +525,9 @@ Voice mode. Takes some or all available [voices](#voice) and stacks them onto a 
 * SPREAD (DETUNE) : increases the pitch difference between each [voices](#voice).
 
 
-### V
+## V
 
-##### VCA
+#### VCA
 Graph node. The voltage-controlled amplifier: the level/gate stage of a voice.
 
 #### VOICE
@@ -537,7 +537,7 @@ In synthesizer terminology, a **voice** is the complete, independent hardware or
 ##### Contextual to main screen's bottom line
 A real-time polyphony meter displaying the number of currently active and sounding voices. The engine draws from a hard ceiling of 128 voices. 
 
-### W
+## W
 
 #### WAVEFORM
 ##### Contextual to [Oscillator](#oscillator_osc)
