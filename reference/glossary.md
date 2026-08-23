@@ -71,6 +71,19 @@ See **[Toggle.](#toggle)**
 ##### Contextual to [Exciter](#exciter_exc)
 Toggle button (`SYNC`) enabling sample-accurate tempo latching.
 
+#### CMP_COMPRESSOR
+**Graph node.** Place in source of a VCA. 
+
+An audio compressor is an automatic volume control. It reduces the dynamic range of an audio signal—the difference between the loudest and quietest parts.
+
+Parameters : 
+
+  - **Tresh**: Threshold. This is the trigger point. The compressor will only start reducing volume when the audio signal crosses this specific level. Anything below the threshold is left completely untouched.
+  - **Ratio**: How intensely the audio is turned down once it crosses the threshold.
+  - **Attack**: How quickly the compressor reacts and pulls the volume down after the signal crosses the threshold.
+  - **Release**: How quickly the compressor lets go and returns the volume to normal after the signal falls back below the threshold.
+  - **Makeup**:  Because compression inherently turns the loudest parts of the signal down, the overall sound becomes quieter. Makeup gain is used at the very end of the chain to boost the entire compressed signal back up to a healthy level.
+
 #### COLOR_COL 
 ##### Contextual to [Exciter](#exciter_exc) 
 A mapped rotary knob selecting the spectral tilt.  _Values:_ `WHT`, `PNK`, `RED`, `BLU`, `VIO`. See (https://en.wikipedia.org/wiki/Colors_of_noise) for details.
