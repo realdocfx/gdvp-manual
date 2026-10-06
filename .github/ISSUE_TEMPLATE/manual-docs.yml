@@ -1,0 +1,23 @@
+name: "Manual / Documentation"
+description: "User-manual + docs work. Exempt from the AIS protocol (GOVERNANCE.md §6)."
+title: "[docs] <concise title>"
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The **user manual flows freely** — no AIS, no branch ceremony. Use this to
+        track a doc task (optional). Remember: documentation also *gates features*,
+        so a feature's required doc update lives on that feature's issue, not here.
+  - type: textarea
+    id: what
+    attributes:
+      label: What needs writing / updating
+      placeholder: "manual/sound/effects.md — cover the new global EFX send"
+    validations:
+      required: true
+  - type: input
+    id: pages
+    attributes:
+      label: Page(s) / surface affected
+      placeholder: "manual/…, wiki, KB"
