@@ -93,7 +93,7 @@ deterministic, legible, and self-contained rather than dependent on a heavy GPU 
 The top row of the window, from left to right:
 
 | Control | What it does |
-|---|---|
+| --- | --- |
 | `GDVP x.y.z` | The engine version. |
 | `SYSTEM` … `ARENA` | The mode tabs. |
 | `MSTR` | Opens the mix and master console. |
@@ -113,6 +113,33 @@ capture is still being written shows `CAPTURE BUSY`: click again a moment later.
 
 **In the plug-in.** The tape deck is dimmed in the plug-in for now: it records nothing until the plug-in's
 multi-output update. The DAC badge works there too.
+
+## 9.8 The console's patchbay page (PTCH) {#console-patch}
+
+`MSTR` (or Ctrl+M) opens the mix and master console. The tabs at its top right choose a page: `PTCH` (the
+patchbay), `STRP` (the 16 channel strips) and `BUS` (the master effects). `CLOSE` closes the console.
+
+The patchbay page shows how audio is routed inside the engine:
+
+| Block | What it shows | To change it |
+| --- | --- | --- |
+| **STRIP I/O**, `IN` row | What each part's strip plays: `SYNTH` (its own voices), `WH1` … `WH8` (a wormhole instead of the voices) or `S+WH1` … `S+WH8` (both). | Click: the next input. |
+| **STRIP I/O**, `TAP` row | Where each part's tap takes its signal, the tap being what a wormhole or the tape picks up from the part: `PRE` (before the strip), `EQ`, `DYN` and `INS` (after each stage), `PREF` (before the fader) or `POSTF` (after it: what the part gives the mix, the default). | Click: the next point. |
+| **WORMHOLES**, `SRC` | What wormhole WH1 … WH8 carries: `OFF`, a part's tap `P1` … `P16`, or the master bus: `PRE` (before the limiter), `LIM` (after it) or `DAC` (the converter output). | Click: the next source. |
+| **WORMHOLES**, `GAIN` | The wormhole's level, −60 to +18 dB. | Drag up or down; hold Shift for fine steps; Ctrl+click for 0 dB. |
+| **WORMHOLES**, `SAFE` | `ON` (the default): a soft limit keeps a feedback loop below full scale. `OFF`: a hard clamp at full scale. | Click: on or off. |
+| **WORMHOLES**, `LIVE` | Lit while the wormhole runs: from the moment it has a source until what it carries has died away. | — |
+| **TAPE**, `SRC` | What the retro tape records: `DAC` (the output, the default), `24B` (the limiter's 24-bit output) or a part's tap `P1` … `P16`. | Click: the next source. |
+
+**Wormholes.** A wormhole carries one point of the engine back to the strips one block later (64 samples, about
+1.5 ms): give it a source, then choose it as a part's input. A part listening to a wormhole plays even with no note
+held, as long as it has a patch loaded. A part can listen to its own tap, which makes a feedback loop: with `SAFE`
+on the loop is held softly below full scale; with it off, it is clipped hard at full scale. Every change is smooth
+(a crossfade of about 12 ms, a short glide for the gain), so you can re-patch while playing without clicks.
+
+**What you see is what the engine holds.** The page shows the engine's own settings, whoever changed them: you, a
+loaded patch or a DAW. A strip's change appears once the engine has taken it, within about 1.5 ms. In a window
+tethered to a running plug-in the page is dimmed and does nothing.
 
 ---
 
