@@ -88,4 +88,32 @@ deterministic, legible, and self-contained rather than dependent on a heavy GPU 
 
 ---
 
+## 9.7 The header bar {#header-bar}
+
+The top row of the window, from left to right:
+
+| Control | What it does |
+|---|---|
+| `GDVP x.y.z` | The engine version. |
+| `SYSTEM` … `ARENA` | The mode tabs. |
+| `MSTR` | Opens the mix and master console. |
+| ● (REC) | Arms the **retro tape**. While armed, the engine keeps the last 31 seconds of the master output. The dot is lit red while the tape is armed; click again to stop. What was recorded stays available until you arm the tape again. |
+| ◀◀ (capture) | Saves the last 30 seconds of the tape as a WAV file in the `captures` folder of your data folder, named `GDVP-<date>-<time>.wav`. |
+| `DAC:<mode>` | The output converter: `16RAW` (16-bit, undithered, the default), `16TPD` (16-bit with TPDF dither) or `24DIR` (24-bit direct). Click to step to the next mode. |
+| \|◀ ▶ `1.1.00` `120 BPM` `INT` | The transport: return to zero, play / stop, the song position (bar.beat.tick), the tempo (drag up or down) and who drives it: `INT` (this panel), `CLK` (an external MIDI clock) or `DAW`. |
+
+**Capture after the fact.** The tape runs the whole time it is armed, so you never have to press record before
+the moment happens: when you play something worth keeping, capture it afterwards. A capture is 16-bit, or 24-bit
+when the DAC is in `24DIR`. It is written in the background, so playing carries on undisturbed. The status bar then
+shows `SAVED <file>`. If the file could not be written, it shows `CAPTURE FAILED <file>`. A click while the previous
+capture is still being written shows `CAPTURE BUSY`: click again a moment later.
+
+**Where the files go.** In the data folder: `~/Library/Application Support/RealDocFX/GDVP/captures` on macOS,
+`%APPDATA%\RealDocFX\GDVP\captures` on Windows, and next to the program in a portable install.
+
+**In the plug-in.** The tape deck is dimmed in the plug-in for now: it records nothing until the plug-in's
+multi-output update. The DAC badge works there too.
+
+---
+
 [← MIDI](midi.md) · [Manual index](../README.md) · Next: [Parameter Index →](../reference/parameter-index.md)
